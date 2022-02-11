@@ -14,7 +14,17 @@ int main()
 
 	Application::EnableVisualStyles();
 	OOPZerebkovs::MainForm form;
-	ball = new Ball(form.frame->Width, form.frame->Height);
+
+	ShapeInitParams params;
+
+	params.x = form.frame->Width / 2;
+	params.y = form.frame->Height / 2;
+	params.color = Color::FromArgb(50, 145, 168).ToArgb();
+	params.size = 30;
+	params.frameWidth = form.frame->Width;
+	params.frameHeight = form.frame->Height;
+
+	ball = new Ball(params);
 	Application::Run(% form);
 	delete ball;
 }

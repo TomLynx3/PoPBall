@@ -98,7 +98,7 @@ namespace OOPZerebkovs {
 	}
 	private: System::Void frame_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 
-		ball->SetPos(e->X, e->Y);
+		ball->setPos(e->X, e->Y);
 
 		frame->Invalidate();
 	}
@@ -108,14 +108,14 @@ namespace OOPZerebkovs {
 
 		if (e->Button == System::Windows::Forms::MouseButtons::Left) { 
 			
-			ball->SetPos(e->X, e->Y);
+			ball->setPos(e->X, e->Y);
 
 			frame->Invalidate();
 		}
 	}
 	private: System::Void frame_MouseDoubleClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 		
-		ball->SetRandomColor();
+		ball->setRandomColor();
 
 		frame->Invalidate();
 	}
@@ -126,10 +126,10 @@ namespace OOPZerebkovs {
 		
 			if (e->Delta < 0) { 
 				
-				ball->SetSize(ball->GetSize() - 5);
+				ball->setSize(ball->getSize() - 5);
 			}
 			else {
-				ball->SetSize(ball->GetSize() + 5);
+				ball->setSize(ball->getSize() + 5);
 			}
 	
 		}

@@ -2,15 +2,11 @@
 
 Ball* ball;
 
-Ball::Ball(int frameWidth, int frameHeight)
+Ball::Ball(ShapeInitParams params) : IShape(params)
 {
-	_frameWidth = frameWidth ;
-	_frameHeight = frameHeight;
+	
 
-	_x = _frameWidth/2;
-	_y = _frameHeight/2;
-	_color = Color::FromArgb(50,145,168).ToArgb();
-	_size = 30;
+	
 }
 
 void Ball::Draw(Graphics^ graphics)

@@ -5,7 +5,7 @@ class Ball :
     public IShape
 {
 public:
-    Ball(int frameWidth,int frameHeight);
+    Ball(ShapeInitParams params);
     void Draw(Graphics^ graphics) override;
 };
 

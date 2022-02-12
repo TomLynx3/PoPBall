@@ -23,6 +23,8 @@ int main()
 	params.size = 30;
 	params.frameWidth = form.frame->Width;
 	params.frameHeight = form.frame->Height;
+	params.dx = rand() % 20 + (-10);
+	params.dy = rand() % 20 + (-10);
 
 	ball = new Ball(params);
 	Application::Run(% form);

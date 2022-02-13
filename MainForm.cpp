@@ -17,17 +17,6 @@ int main()
 
 	manager = new Manager(form.frame->Width, form.frame->Height);
 
-	ShapeInitParams params;
-
-	params.x = form.frame->Width / 2;
-	params.y = form.frame->Height / 2;
-	params.color = Color::FromArgb(50, 145, 168).ToArgb();
-	params.size = 30;
-	params.frameWidth = form.frame->Width;
-	params.frameHeight = form.frame->Height;
-	params.dx = rand() % 20 + (-10);
-	params.dy = rand() % 20 + (-10);
-
 	Application::Run(% form);
 	delete manager;
 }

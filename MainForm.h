@@ -1,7 +1,10 @@
 #pragma once
 
+#include "IShape.h"
 #include "Ball.h"
-#include <cmath> 
+#include "Manager.h";
+#include <cmath>
+
 
 using namespace std;
 
@@ -75,6 +78,7 @@ namespace OOPZerebkovs {
 			this->frame->Size = System::Drawing::Size(722, 452);
 			this->frame->TabIndex = 0;
 			this->frame->TabStop = false;
+			this->frame->Click += gcnew System::EventHandler(this, &MainForm::frame_Click);
 			this->frame->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainForm::frame_Paint);
 			this->frame->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseDoubleClick);
 			this->frame->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseDown);
@@ -103,8 +107,10 @@ namespace OOPZerebkovs {
 			this->KeyPreview = true;
 			this->Name = L"MainForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Pop Balls V2: Moving Ball";
+			this->Text = L"Pop Ball V3: Brownian motion";
 			this->Load += gcnew System::EventHandler(this, &MainForm::MainForm_Load);
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MainForm::MainForm_KeyDown);
+			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &MainForm::MainForm_KeyUp);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->frame))->EndInit();
 			this->ResumeLayout(false);
 
@@ -116,116 +122,110 @@ namespace OOPZerebkovs {
 		bool isMousePressed = false;
 		int x1 = 0;
 		int y1 = 0;
+		IShape* object;
 
 	private: System::Void MainForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		
 	}
 	private: System::Void frame_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-		Graphics^ grp = e->Graphics;
+		
+		manager->drawFrame(e->Graphics);
 
-		grp->FillRectangle(% SolidBrush(Color::FromArgb(217,212,212)), 0, 0, frame->Width, frame->Height);
-
-		ball->Draw(grp);
 	}
 	private: System::Void frame_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 
-		
 
-		if (e->Button == System::Windows::Forms::MouseButtons::Right) {
-			ball->followTo(e->X, e->Y);
-		}
-		else if (e->Button == System::Windows::Forms::MouseButtons::Left) {
+		IShape* fig = manager->search(Coordinates{ (float)e->X, (float)e->Y });
+
+		if (!fig) {
+			ShapeInitParams params = manager->createRandomObjectParams(e->X, e->Y);
 			
-			ball->setSpeed(0, 0);
-
-			ball->setPos(e->X, e->Y);
+			params.dx = 0;
+			params.dy = 0;
+			
+			object = new Ball(params);	
 
 			tickCount = 0;
-
 			isMousePressed = true;
 
 			x1 = e->X;
 			y1 = e->Y;
+
 		}
+		else {
+			manager->remove(fig);
+		}
+
+	
+
 	}
 	private: System::Void frame_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 		
 
-		if (e->Button == System::Windows::Forms::MouseButtons::Left) { 
-			
-			ball->setPos(e->X, e->Y);
-
-		}
-		else if (e->Button == System::Windows::Forms::MouseButtons::Right) {
-			ball->followTo(e->X, e->Y);
-		}
 	}
 	private: System::Void frame_MouseDoubleClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 		
-		ball->setRandomColor();
-
 	}
 
 	private: void Form_MouseWheel(Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
 	{
-		/*if (ModifierKeys == Keys::Control || ModifierKeys == Keys::Scroll) { 
-		
-			// Sometimes scroll event not working
-		}*/
 
 		if (e->Delta < 0) {
-
-			float dx = ball->getdX();
-			float dy = ball->getdY();
-
-			if (abs(dx) >= 1) {
-				dx *= 0.3;
-			}
-
-			if (abs(dy) >= 1) {
-				dy *= 0.3;
-			}
-
-			ball->setSpeed(dx, dy);
+			manager->decreaseSpeed();
 		}
 		else {
-
-			float dx = ball->getdX();
-			float dy = ball->getdY();
-
-			if (abs(dx) < 50) {
-				dx *= 1.3;
-			}
-
-			if (abs(dy) < 50) {
-				dy *= 1.3;
-			}
-
-			ball->setSpeed(dx, dy);
+			manager->increaseSpeed();
 		}
-
 
 	}
 	private: System::Void moveTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
-		ball->move();
-		
+
+		manager->move();
+
 		if (isMousePressed) {
 			tickCount++;
 		}
 	}
 private: System::Void drawTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
+
 		frame->Invalidate();
 
 	}
 private: System::Void frame_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		
-		isMousePressed = false ;
+		isMousePressed = false;
 
 		if (tickCount == 0) {
 			tickCount = 1;
 		}
 
-		ball->setSpeed((e->X - x1) / tickCount, (e->Y - y1) / tickCount);
+		if (object) {
+
+			manager->add(object);
+
+			float deltaX = (e->X - x1) == 0 ? 2 : (e->X - x1);
+			float deltaY = (e->Y - y1) == 0 ? 2 : (e->Y - y1);
+
+			object->setSpeed(deltaX / tickCount, deltaY/ tickCount);
+			
+			object = nullptr;
+		}
+		
+	}
+private: System::Void frame_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+		
+	}
+private: System::Void MainForm_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		
+	if (e->KeyCode == Keys::ControlKey) {
+		moveTimer->Enabled = false;
+		}
+	}
+private: System::Void MainForm_KeyUp(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+
+		if (e->KeyCode == Keys::ControlKey) {
+			moveTimer->Enabled = true;
+		}
 	}
 };
 }

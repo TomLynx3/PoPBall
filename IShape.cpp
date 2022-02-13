@@ -137,6 +137,21 @@ void IShape::followTo(int x, int y)
 
 }
 
+Coordinates IShape::getCenterPosition()
+{
+	Coordinates coord;
+
+	coord.x = _x - _size;
+	coord.y = _y - _size;
+
+	return coord;
+}
+
+Coordinates IShape::getPosition()
+{
+	return Coordinates{ _x,_y };
+}
+
 bool IShape::checkColisionWithWall(Side side)
 {
 	switch(side) {

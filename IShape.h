@@ -7,6 +7,7 @@ using namespace System::Drawing;
 
 struct ShapeInitParams { int x; int y; int color; int size; int frameWidth; int frameHeight; float dx; float dy; };
 enum Side {N,S,W,E};
+struct Coordinates { float x; float y; };
 
 class IShape
 {
@@ -15,8 +16,8 @@ public:
 
 	IShape(ShapeInitParams params);
 
-	virtual void Draw(Graphics^ graphics) = 0;
-	
+	virtual void draw(Graphics^ graphics) = 0;
+	virtual void interact(IShape* object) = 0;
 	
 	void setPos(int x, int y);
 	int getColor();
@@ -29,6 +30,8 @@ public:
 	void setSpeed(float dX, float dY);
 	void move();
 	void followTo(int x, int y);
+	Coordinates getCenterPosition();
+	Coordinates getPosition();
 
 protected:
 	float _x;

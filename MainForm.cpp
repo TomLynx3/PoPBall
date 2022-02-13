@@ -15,6 +15,8 @@ int main()
 	Application::EnableVisualStyles();
 	OOPZerebkovs::MainForm form;
 
+	manager = new Manager(form.frame->Width, form.frame->Height);
+
 	ShapeInitParams params;
 
 	params.x = form.frame->Width / 2;
@@ -26,7 +28,6 @@ int main()
 	params.dx = rand() % 20 + (-10);
 	params.dy = rand() % 20 + (-10);
 
-	ball = new Ball(params);
 	Application::Run(% form);
-	delete ball;
+	delete manager;
 }

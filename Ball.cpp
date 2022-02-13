@@ -54,11 +54,7 @@ void Ball::interact(IShape* object)
 	float subvector1 = ((_size  - object->getSize()) * decomp12  -2 * object->getSize() * decomp21) / (object->getSize()  + _size );
 	float subvector2 = ((_size  - object->getSize())  * decomp21  +2 * _size * decomp12) / (object->getSize()  + _size );
 
-
-	float m = -sin(alpha1);
-	float s = cos(alpha1);
-
-	Vector2 v1(m, s);
+	Vector2 v1(-sin(alpha1), cos(alpha1));
 	Vector2 v2(-sin(alpha2), cos(alpha2));
 	Vector2 v3(cos(alpha1), sin(alpha1));
 	Vector2 v4(cos(alpha2), sin(alpha2));

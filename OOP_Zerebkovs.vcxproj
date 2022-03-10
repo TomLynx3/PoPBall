@@ -120,7 +120,6 @@
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="IFigure.cpp" />
-    <ClCompile Include="IShape.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Mover.cpp" />
@@ -133,7 +132,6 @@
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="IFigure.h" />
-    <ClInclude Include="IShape.h" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

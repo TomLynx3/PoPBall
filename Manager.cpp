@@ -33,21 +33,6 @@ void Manager::add(IFigure* object)
 	}
 }
 
-//ShapeInitParams Manager::createRandomObjectParams(int x, int y)
-//{
-//	ShapeInitParams params;
-//
-//	params.x = x;
-//	params.y = y;
-//	params.color = Color::FromArgb(rand() % 256, rand() % 256, rand() % 256).ToArgb();
-//	params.size = 15;
-//	params.frameWidth = _frameWidth;
-//	params.frameHeight = _frameHeight;
-//	params.dx = rand() % 20 + (-10);
-//	params.dy = rand() % 20 + (-10);
-//
-//	return params;
-//}
 
 void Manager::drawFrame(Graphics^ graphics)
 {

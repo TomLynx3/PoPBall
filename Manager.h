@@ -21,7 +21,6 @@ public:
 	Manager(int frameWidth, int frameHeight);
 	~Manager();
 	void add(IFigure* object);
-	//ShapeInitParams createRandomObjectParams(int x, int y);
 	void drawFrame(Graphics^ graphics);
 	void move();
 	IFigure* search(Coordinates coord);

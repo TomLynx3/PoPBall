@@ -15,12 +15,6 @@ Mover::Mover(int frameWidth, int frameHeight)
 
 void Mover::setPos(int x, int y)
 {
-	/*if (x < _size) {
-		x = _size;
-	}
-	if (y < _size) {
-		x = _size;
-	}*/
 
 	if (_size < x && x < (_frameWidth - _size)) {
 		_x = x;
@@ -48,7 +42,6 @@ const int Mover::getSize()
 
 void Mover::setSize(int size)
 {
-	//setPos(_x, _y);
 
 	if (size <= 1 || size >= 100) {
 		return;

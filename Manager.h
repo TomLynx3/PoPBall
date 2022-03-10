@@ -4,6 +4,7 @@
 #include "Square.h"
 #include "Ball.h"
 #include "Triangle.h"
+#include <typeinfo>
 
 #define MAX_OBJECTS 25
 #define FIGURE_TYPE_COUNT 4
@@ -16,12 +17,12 @@ private:
 	IFigure* _objects[MAX_OBJECTS];
 	int _frameWidth, _frameHeight;
 	bool checkCollision(IFigure* first, IFigure* second);	
+	Coordinates getRandomCoordinates(IFigure* object);
 
 public:
 	Manager(int frameWidth, int frameHeight);
 	~Manager();
 	void add(IFigure* object);
-	//ShapeInitParams createRandomObjectParams(int x, int y);
 	void drawFrame(Graphics^ graphics);
 	void move();
 	IFigure* search(Coordinates coord);
@@ -29,7 +30,8 @@ public:
 	void increaseSpeed();
 	void decreaseSpeed();
 	IFigure* createRandomFigure(int frameWidth,int frameHeight,int x,int y);
-	
+	int countOf(const type_info* type);
+	const void place(IFigure* object);
 	
 };
 

@@ -218,6 +218,11 @@ void Mover::interact(IFigure* object)
 
 }
 
+bool Mover::interactable(IFigure* object)
+{
+	return true;
+}
+
 const bool Mover::checkColisionWithWall(Side side)
 {
 	switch (side) {

@@ -26,6 +26,7 @@ public:
 	virtual const Coordinates getCenterPosition() =0;
 	virtual const Coordinates getPosition() =0;
 	virtual void interactReaction() = 0;
+	virtual bool interactable(IFigure* object) = 0;
 
 protected:
 	virtual const bool checkColisionWithWall(Side side) = 0 ;

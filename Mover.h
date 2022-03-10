@@ -23,6 +23,7 @@ public:
 	const Coordinates getPosition();
 	const float getCurrentSpeed();
 	void interact(IFigure* object) override;
+	bool interactable(IFigure* object) override;
 
 protected:
 	float _x;

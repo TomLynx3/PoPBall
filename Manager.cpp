@@ -63,7 +63,6 @@ void Manager::drawFrame(Graphics^ graphics)
 void Manager::move()
 {
 
-
 	for (int i = 0; i < MAX_OBJECTS; i++) {
 
 		if (!_objects[i]) {
@@ -79,15 +78,19 @@ void Manager::move()
 
 			if (isCollision) {
 				
-				_objects[i]->interact(_objects[j]);
-				_objects[i]->move();
-				_objects[j]->move();
+				if (_objects[i]->interactable(_objects[j])) {
+					_objects[i]->interact(_objects[j]);
+				}
+				
+
+				if (_objects[i]) _objects[i]->move();
+				if (_objects[j]) _objects[j]->move();
 				
 				
 			}
 		}
-
-		_objects[i]->move();
+		
+		if(_objects[i]) _objects[i]->move();
 	}
 }
 
@@ -99,6 +102,12 @@ bool Manager::checkCollision(IFigure* first, IFigure* second)
 	float dist = sqrt(pow((secondCoord.x-firstCoord.x),2) + pow((secondCoord.y - firstCoord.y),2));
 
 	return dist < (first->getSize() + second->getSize());
+}
+
+Coordinates Manager::getRandomCoordinates(IFigure* object)
+{
+
+	return Coordinates{ (float)(rand() % _frameWidth - object->getSize()) , (float)(rand() % _frameHeight - object->getSize()) };
 }
 
 IFigure* Manager::search(Coordinates coord)
@@ -205,5 +214,24 @@ IFigure* Manager::createRandomFigure(int frameWidth, int frameHeight, int x, int
 
 
 	return object;
+}
+
+int Manager::countOf(const type_info* type)
+{
+	int count = 0;
+
+	for (IFigure* object : _objects) {
+		if (object &&  typeid(*object) == *type) count++;
+	}
+
+	return count;
+}
+
+const void Manager::place(IFigure* object)
+{
+	int x = rand() % _frameWidth - object->getSize();
+	//int y = rand()%;
+
+	
 }
 

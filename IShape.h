@@ -4,7 +4,6 @@
 
 using namespace System::Drawing;
 
-
 struct ShapeInitParams { int x; int y; int color; int size; int frameWidth; int frameHeight; float dx; float dy; };
 enum Side {N,S,W,E};
 struct Coordinates { float x; float y; };
@@ -32,6 +31,7 @@ public:
 	void followTo(int x, int y);
 	Coordinates getCenterPosition();
 	Coordinates getPosition();
+
 
 protected:
 	float _x;

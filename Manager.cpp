@@ -11,6 +11,7 @@ Manager::Manager(int frameWidth, int frameHeight)
 	for (int i = 0; i < MAX_OBJECTS; i++) {
 		_objects[i] = NULL;
 	}
+	
 }
 
 Manager::~Manager()
@@ -22,7 +23,7 @@ Manager::~Manager()
 	}
 }
 
-void Manager::add(IShape* object)
+void Manager::add(IFigure* object)
 {
 	for (int i = 0; i < MAX_OBJECTS; i++) {
 		if (!_objects[i]) {
@@ -32,21 +33,21 @@ void Manager::add(IShape* object)
 	}
 }
 
-ShapeInitParams Manager::createRandomObjectParams(int x, int y)
-{
-	ShapeInitParams params;
-
-	params.x = x;
-	params.y = y;
-	params.color = Color::FromArgb(rand() % 256, rand() % 256, rand() % 256).ToArgb();
-	params.size = 15;
-	params.frameWidth = _frameWidth;
-	params.frameHeight = _frameHeight;
-	params.dx = rand() % 20 + (-10);
-	params.dy = rand() % 20 + (-10);
-
-	return params;
-}
+//ShapeInitParams Manager::createRandomObjectParams(int x, int y)
+//{
+//	ShapeInitParams params;
+//
+//	params.x = x;
+//	params.y = y;
+//	params.color = Color::FromArgb(rand() % 256, rand() % 256, rand() % 256).ToArgb();
+//	params.size = 15;
+//	params.frameWidth = _frameWidth;
+//	params.frameHeight = _frameHeight;
+//	params.dx = rand() % 20 + (-10);
+//	params.dy = rand() % 20 + (-10);
+//
+//	return params;
+//}
 
 void Manager::drawFrame(Graphics^ graphics)
 {
@@ -70,7 +71,7 @@ void Manager::move()
 		}
 
 		for (int j = 0; j < MAX_OBJECTS; j++) {
-			if (!_objects[j] || _objects[i] == _objects[j]) {
+			if (!_objects[j] || _objects[i] == _objects[j] || !_objects[i]) {
 				continue;
 			}
 
@@ -90,7 +91,7 @@ void Manager::move()
 	}
 }
 
-bool Manager::checkCollision(IShape* first, IShape* second)
+bool Manager::checkCollision(IFigure* first, IFigure* second)
 {
 	Coordinates firstCoord = first->getCenterPosition();
 	Coordinates secondCoord = second->getCenterPosition();
@@ -100,11 +101,11 @@ bool Manager::checkCollision(IShape* first, IShape* second)
 	return dist < (first->getSize() + second->getSize());
 }
 
-IShape* Manager::search(Coordinates coord)
+IFigure* Manager::search(Coordinates coord)
 {
 
 	for (int i = 0; i < MAX_OBJECTS; i++) {
-		IShape* object = _objects[i];
+		IFigure* object = _objects[i];
 
 		if (!object) {
 			continue;
@@ -121,7 +122,7 @@ IShape* Manager::search(Coordinates coord)
 	return nullptr;
 }
 
-void Manager::remove(IShape* object)
+void Manager::remove(IFigure* object)
 {
 	for (int i= 0; i < MAX_OBJECTS; i++) {
 		
@@ -178,3 +179,31 @@ void Manager::decreaseSpeed()
 		_objects[i]->setSpeed(dx, dy);
 	}
 }
+
+IFigure* Manager::createRandomFigure(int frameWidth, int frameHeight, int x, int y)
+{
+	int random = rand() % FIGURE_TYPE_COUNT;
+
+	IFigure* object;
+
+	switch ((FigureType)random) {
+		case FigureType::STAR:
+			object = new Star(frameWidth, frameHeight, x, y);
+			break;
+		case FigureType::BALL:
+			object = new Ball(frameWidth, frameHeight);
+			break;
+		case FigureType::RECTANGLE:
+			object = new Square(frameWidth, frameHeight, x, y);
+			break;
+		case FigureType::TRIANGLE:
+			object = new Triangle(frameWidth, frameHeight, x, y);
+			break;
+		default:
+			object = new Ball(frameWidth, frameHeight);
+	}
+
+
+	return object;
+}
+

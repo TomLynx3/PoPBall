@@ -1,12 +1,12 @@
 #pragma once
-#include "IShape.h"
-#include "Vector2.h"
+#include "Mover.h"
+
 
 class Ball :
-    public IShape
+    public Mover
 {
 public:
-    Ball(ShapeInitParams params);
-    void draw(Graphics^ graphics) override;
-    void interact(IShape* object) override;
+    Ball(int frameHeight, int frameWidth);
+    const void draw(Graphics^ graphics) override;
+    void interactReaction() override;
 };

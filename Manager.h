@@ -1,27 +1,35 @@
 #pragma once
-#include "IShape.h"
-
+#include "IFigure.h"
+#include "Star.h"
+#include "Square.h"
+#include "Ball.h"
+#include "Triangle.h"
 
 #define MAX_OBJECTS 25
+#define FIGURE_TYPE_COUNT 4
+
+
+enum FigureType {BALL,STAR,TRIANGLE,RECTANGLE};
 class Manager
 {
 private:
-	IShape* _objects[MAX_OBJECTS];
+	IFigure* _objects[MAX_OBJECTS];
 	int _frameWidth, _frameHeight;
-	bool checkCollision(IShape* first, IShape* second);
-	
+	bool checkCollision(IFigure* first, IFigure* second);	
 
 public:
 	Manager(int frameWidth, int frameHeight);
 	~Manager();
-	void add(IShape* object);
-	ShapeInitParams createRandomObjectParams(int x, int y);
+	void add(IFigure* object);
+	//ShapeInitParams createRandomObjectParams(int x, int y);
 	void drawFrame(Graphics^ graphics);
 	void move();
-	IShape* search(Coordinates coord);
-	void remove(IShape* object);
+	IFigure* search(Coordinates coord);
+	void remove(IFigure* object);
 	void increaseSpeed();
 	void decreaseSpeed();
+	IFigure* createRandomFigure(int frameWidth,int frameHeight,int x,int y);
+	
 	
 };
 

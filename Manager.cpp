@@ -317,7 +317,7 @@ IFigure* Manager::nearest(IFigure* object)
 	for (int i = 0; i < MAX_OBJECTS; i++) {
 		IFigure* fig = _objects[i];
 
-		if (fig) {
+		if (fig && fig != object) {
 
 			if (nearest) {
 

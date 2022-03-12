@@ -1,5 +1,6 @@
 #include "Mover.h"
 
+
 Mover::Mover(int frameWidth, int frameHeight)
 {
 	_frameHeight = frameHeight;
@@ -10,17 +11,12 @@ Mover::Mover(int frameWidth, int frameHeight)
 	_color = Color::FromArgb(rand() % 256, rand() % 256, rand() % 256).ToArgb();
 	_dx = rand() % 21 - 10;
 	_dy = rand() % 21 - 10;
+	_movesMade = 0;
 
 }
 
 void Mover::setPos(int x, int y)
 {
-	/*if (x < _size) {
-		x = _size;
-	}
-	if (y < _size) {
-		x = _size;
-	}*/
 
 	if (_size < x && x < (_frameWidth - _size)) {
 		_x = x;
@@ -48,7 +44,6 @@ const int Mover::getSize()
 
 void Mover::setSize(int size)
 {
-	//setPos(_x, _y);
 
 	if (size <= 1 || size >= 100) {
 		return;
@@ -123,6 +118,8 @@ void Mover::move()
 
 	_x += _dx;
 	_y += _dy;
+	
+	if (_movesMade < 10) _movesMade++;
 }
 
 void Mover::followTo(int x, int y)
@@ -141,6 +138,25 @@ void Mover::followTo(int x, int y)
 	_dx = x < _x ? -dx : dx;
 
 	_dy = y < _y ? -dy : dy;
+}
+
+void Mover::followAway(Coordinates position)
+{
+	float deltaX = position.x - _x;
+	float deltaY = position.y - _y;
+
+	float angle = atan2(deltaY, deltaX);
+
+	float speed = getCurrentSpeed();
+
+
+	float dx = speed * cos(angle);
+
+	float dy = speed * sin(angle);
+
+	_dx = -dx;
+	_dy = -dy;
+
 }
 
 const Coordinates Mover::getCenterPosition()
@@ -164,7 +180,7 @@ const float Mover::getCurrentSpeed()
 }
 
 void Mover::interact(IFigure* object)
-{
+{	
 
 	Vector2 firstVelocityVector(_dx, _dy);
 	Vector2 secondVelocityVector(object->getdX(), object->getdY());
@@ -213,15 +229,18 @@ void Mover::interact(IFigure* object)
 
 	object->setSpeed(newVec2.getX(), newVec2.getY());
 
-	interactReaction();
-	object->interactReaction();
 
 }
 
-bool Mover::interactable(IFigure* object)
+const float Mover::getDistance(IFigure* object)
 {
-	return true;
+	Coordinates myCoord = getCenterPosition();
+	Coordinates objectCoord = object->getCenterPosition();
+
+	return sqrt(((myCoord.x - objectCoord.x)*(myCoord.x - objectCoord.x)) + ((myCoord.y-objectCoord.y)*(myCoord.y-objectCoord.y)));
+
 }
+
 
 const bool Mover::checkColisionWithWall(Side side)
 {

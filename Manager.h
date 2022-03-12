@@ -25,6 +25,7 @@ public:
 	void add(IFigure* object);
 	void drawFrame(Graphics^ graphics);
 	void move();
+	void makeReactions();
 	IFigure* search(Coordinates coord);
 	void remove(IFigure* object);
 	void increaseSpeed();
@@ -32,6 +33,10 @@ public:
 	IFigure* createRandomFigure(int frameWidth,int frameHeight,int x,int y);
 	int countOf(const type_info* type);
 	const void place(IFigure* object);
+	void explodeAllObjects();
+	IFigure* nearestFriend(IFigure* object);
+	IFigure* nearestAlien(IFigure* object);
+	IFigure* nearest(IFigure* object);
 	
 };
 

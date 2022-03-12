@@ -8,6 +8,7 @@ Square::Square(int frameWidth, int frameHeight, int x, int y) : Rotator(frameWid
 const void Square::draw(Graphics^ graphics)
 {
 	SolidBrush brush(Color::FromArgb(_color));
+	Pen pen(Color::FromArgb(158, 50, 168), 5);
 
 	array<Point>^ points = gcnew array<Point>(4);
 
@@ -20,11 +21,59 @@ const void Square::draw(Graphics^ graphics)
 		);
 	}
 
+	graphics->DrawPolygon(% pen, points);
 	graphics->FillPolygon(% brush, points);
 
 }
 
-void Square::interactReaction()
+
+void Square::interact(IFigure* object)
 {
-	_size = 10 + (rand() % 30);
+	Mover::interact(object);
+
+	if (interactable(object)) {
+
+		if (typeid(*object) == typeid(*this)) {
+
+
+			if (rand() % 4 == 0 && manager->countOf(&typeid(*this)) < MAX_COUNT) {
+
+				manager->place(new Square(_frameWidth, _frameHeight, 0, 0));
+			}
+		}
+		else {
+			if (rand() % 4 == 0) {
+
+				manager->add(new Explosion(_frameWidth, _frameHeight, _x, _y));
+				manager->remove(this);
+				return;
+			}
+		}
+
+
+	}
+
+}
+
+const bool Square::interactable(IFigure* object)
+{
+
+	Explosion* explosion = dynamic_cast<Explosion*>(object);
+	return explosion == NULL;
+}
+
+void Square::makeReaction()
+{
+	IFigure* nearest = manager->nearest(this);
+
+	if (nearest) {
+		Coordinates pos = nearest->getPosition();
+		if (typeid(*nearest) == typeid(*this)) {
+			followTo(pos.x, pos.y);
+		}
+		else {
+			followAway(pos);
+		}
+	}
+
 }

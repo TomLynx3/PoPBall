@@ -1,6 +1,7 @@
 
 #include <stdlib.h>
 #include <math.h>
+#include <typeinfo>
 
 using namespace System::Drawing;
 struct Coordinates { float x; float y; };
@@ -25,8 +26,9 @@ public:
 	virtual void followTo(int x, int y) =0;
 	virtual const Coordinates getCenterPosition() =0;
 	virtual const Coordinates getPosition() =0;
-	virtual void interactReaction() = 0;
-	virtual bool interactable(IFigure* object) = 0;
+	virtual const bool interactable(IFigure* object) = 0;
+	virtual const float getDistance(IFigure* object) = 0;
+	virtual void makeReaction() =0;
 
 protected:
 	virtual const bool checkColisionWithWall(Side side) = 0 ;

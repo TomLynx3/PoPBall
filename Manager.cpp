@@ -1,5 +1,4 @@
 #include "Manager.h"
-
 Manager* manager;
 
 
@@ -32,22 +31,6 @@ void Manager::add(IFigure* object)
 		}
 	}
 }
-
-//ShapeInitParams Manager::createRandomObjectParams(int x, int y)
-//{
-//	ShapeInitParams params;
-//
-//	params.x = x;
-//	params.y = y;
-//	params.color = Color::FromArgb(rand() % 256, rand() % 256, rand() % 256).ToArgb();
-//	params.size = 15;
-//	params.frameWidth = _frameWidth;
-//	params.frameHeight = _frameHeight;
-//	params.dx = rand() % 20 + (-10);
-//	params.dy = rand() % 20 + (-10);
-//
-//	return params;
-//}
 
 void Manager::drawFrame(Graphics^ graphics)
 {
@@ -91,6 +74,15 @@ void Manager::move()
 		}
 		
 		if(_objects[i]) _objects[i]->move();
+	}
+}
+
+void Manager::makeReactions()
+{
+	for (int i = 0; i < MAX_OBJECTS; i++) {
+		if (_objects[i]) {
+			_objects[i]->makeReaction();
+		}
 	}
 }
 
@@ -229,9 +221,116 @@ int Manager::countOf(const type_info* type)
 
 const void Manager::place(IFigure* object)
 {
-	int x = rand() % _frameWidth - object->getSize();
-	//int y = rand()%;
+	Coordinates coord = getRandomCoordinates(object);
 
+	object->setPos(coord.x, coord.y);
+
+	int attemps = 0;
+
+	while (attemps < 200) {
+		bool found = false;
+		for (int i = 0;i < MAX_OBJECTS; i++) {
+			if (_objects[i] && checkCollision(_objects[i], object)) {
+				coord = getRandomCoordinates(object);
+				found = true;
+				object->setPos(coord.x, coord.y);
+				attemps++;
+				break;
+			}
+		}
+
+		if (!found) {
+			return add(object);
+		}
+	}
+
+	delete object;
 	
+}
+
+void Manager::explodeAllObjects()
+{
+	
+	for (int i = 0; i < MAX_OBJECTS; i++) {
+		IFigure* object = _objects[i];
+		if (object && dynamic_cast<Explosion*>(object) == NULL) {
+			Coordinates position = object->getPosition();
+			delete object;
+			_objects[i] = new Explosion(_frameWidth, _frameHeight, position.x, position.y);
+		}
+	}
+
+}
+
+IFigure* Manager::nearestFriend(IFigure* object)
+{
+	IFigure* nearest = nullptr;
+	for (int i = 0; i < MAX_OBJECTS; i++) {
+		IFigure* fig = _objects[i];
+
+		if (fig && typeid(*object) == typeid(*fig) && fig != object) {
+
+			if (nearest) {
+				
+				double distance = nearest->getDistance(object);
+				double distance2 = fig->getDistance(object);
+
+				if (distance2 > distance) nearest = fig;
+			}
+			else {
+				nearest = fig;
+			}
+		}
+	}
+
+	return nearest;
+}
+
+IFigure* Manager::nearestAlien(IFigure* object)
+{
+	IFigure* nearest = nullptr;
+
+	for (int i = 0; i < MAX_OBJECTS; i++) {
+		IFigure* fig = _objects[i];
+
+		if (fig && typeid(*object) != typeid(*fig) && fig != object) {
+
+			if (nearest) {
+
+				double distance = nearest->getDistance(object);
+				double distance2 = fig->getDistance(object);
+
+				if (distance2 > distance) nearest = fig;
+			}
+			else {
+				nearest = fig;
+			}
+		}
+	}
+	return nearest;
+}
+
+IFigure* Manager::nearest(IFigure* object)
+{
+	IFigure* nearest = nullptr;
+
+	for (int i = 0; i < MAX_OBJECTS; i++) {
+		IFigure* fig = _objects[i];
+
+		if (fig) {
+
+			if (nearest) {
+
+				double distance = nearest->getDistance(object);
+				double distance2 = fig->getDistance(object);
+
+				if (distance2 > distance) nearest = fig;
+			}
+			else {
+				nearest = fig;
+			}
+		}
+	}
+	return nearest;
 }
 

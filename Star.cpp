@@ -8,6 +8,7 @@ Star::Star(int frameWidth, int frameHeight, int x, int y) : Rotator(frameWidth,f
 const void Star::draw(Graphics^ graphics)
 {
 	SolidBrush brush(Color::FromArgb(_color));
+	Pen pen(Color::FromArgb(158, 50, 168), 5);
 
 	array<Point>^ points = gcnew array<Point>(5);
 
@@ -26,11 +27,52 @@ const void Star::draw(Graphics^ graphics)
 	}
 
 
-
+	graphics->DrawPolygon(% pen, points);
 	graphics->FillPolygon(% brush, points);
 }
 
-void Star::interactReaction()
+
+void Star::interact(IFigure* object)
 {
-	_dAlpha = (2 * M_PI) / 100 + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (((2 * M_PI) / 30) - ((2 * M_PI) / 100))));
+	Mover::interact(object);
+
+	if (interactable(object)) {
+		
+		if (typeid(*object) == typeid(*this)) {
+			
+
+			if (rand() % 4 == 0 && manager->countOf(&typeid(*this)) < MAX_COUNT) {
+				
+				manager->place(new Star(_frameWidth, _frameHeight, 0, 0));
+			}
+		}
+		else {
+			if (rand() % 4 == 0) {
+				
+				manager->add(new Explosion(_frameWidth, _frameHeight, _x, _y));
+				manager->remove(this);
+				return;
+			}
+		}
+
+
+	}
+
+}
+
+const bool Star::interactable(IFigure* object)
+{
+	Explosion* explosion = dynamic_cast<Explosion*>(object);
+	return explosion == NULL;
+}
+
+void Star::makeReaction()
+{
+	IFigure* nearestEnemy = manager->nearestAlien(this);
+
+	if (nearestEnemy) {
+		Coordinates pos = nearestEnemy->getPosition();
+		followTo(pos.x,pos.y);
+	}
+
 }

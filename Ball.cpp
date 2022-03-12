@@ -1,4 +1,5 @@
 #include "Ball.h"
+#include "Explosion.h"
 
 
 Ball::Ball(int frameWidth, int frameHeight) : Mover(frameWidth,frameHeight)
@@ -25,11 +26,49 @@ const void Ball::draw(Graphics^ graphics)
 	
 }
 
-void Ball::interactReaction()
+
+void Ball::interact(IFigure* object)
 {
-	if (getCurrentSpeed() == 0) {
-		
-		_dx= rand() % 20 + (-10);
-		_dy = rand() % 20 + (-10);
+	Mover::interact(object);
+
+	if (interactable(object)) {
+
+		if (typeid(*object) == typeid(*this)) {
+
+
+			if (rand() % 4 == 0 && manager->countOf(&typeid(*this)) < MAX_COUNT) {
+
+				manager->place(new Ball(_frameWidth, _frameHeight));
+			}
+		}
+		else {
+			if (rand() % 4 == 0) {
+
+				manager->add(new Explosion(_frameWidth, _frameHeight, _x, _y));
+				manager->remove(this);
+				return;
+			}
+		}
+
+
 	}
 }
+
+const bool Ball::interactable(IFigure* object)
+{
+	Explosion* explosion = dynamic_cast<Explosion*>(object);
+	return explosion == NULL;
+}
+
+void Ball::makeReaction()
+{
+
+		IFigure* nearestFriend = manager->nearestFriend(this);
+
+		if (nearestFriend) {
+
+			Coordinates pos = nearestFriend->getPosition();
+			followTo(pos.x, pos.y);
+		}
+}
+

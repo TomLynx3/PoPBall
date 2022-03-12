@@ -8,6 +8,7 @@ Triangle::Triangle(int frameWidth, int frameHeight, int x, int y) : Rotator(fram
 const void Triangle::draw(Graphics^ graphics)
 {
 	SolidBrush brush(Color::FromArgb(_color));
+	Pen pen(Color::FromArgb(158, 50, 168), 5);
 
 	array<Point>^ points = gcnew array<Point>(3);
 
@@ -20,6 +21,7 @@ const void Triangle::draw(Graphics^ graphics)
 		);
 	}
 
+	graphics->DrawPolygon(%pen, points);
 	graphics->FillPolygon(%brush, points);
 }
 
@@ -49,9 +51,46 @@ void Triangle::setSpeed(float dX, float dY)
 	_dy = dY;
 }
 
-void Triangle::interactReaction()
+
+void Triangle::interact(IFigure* object)
 {
-	setRandomColor();
+	Mover::interact(object);
+
+	if (interactable(object)) {
+
+		if (typeid(*object) == typeid(*this)) {
+
+
+			if (rand() % 4 == 0 && manager->countOf(&typeid(*this)) < MAX_COUNT) {
+
+				manager->place(new Triangle(_frameWidth, _frameHeight, 0, 0));
+			}
+		}
+		else {
+			if (rand() % 4 == 0) {
+
+				manager->add(new Explosion(_frameWidth, _frameHeight, _x, _y));
+				manager->remove(this);
+				return;
+			}
+		}
+
+
+	}
+}
+
+const bool Triangle::interactable(IFigure* object)
+{
+
+	Explosion* explosion = dynamic_cast<Explosion*>(object);
+	return explosion == NULL;
+}
+
+void Triangle::makeReaction()
+{
+	IFigure* nearest = manager->nearest(this);
+
+	if(nearest) followAway(nearest->getPosition());
 }
 
 

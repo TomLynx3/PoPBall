@@ -27,6 +27,8 @@ public:
 	const float getCurrentSpeed();
 	void interact(IFigure* object) override;
 	const float getDistance(IFigure* object) override;
+	void animate() override;
+	void doCommand(Command cmd) override;
 
 protected:
 	float _x;
@@ -37,9 +39,8 @@ protected:
 	int _frameHeight;
 	float _dx;
 	float _dy;
-	int _movesMade;
 
-private:
+protected:
 	const bool checkColisionWithWall(Side side);
 
 

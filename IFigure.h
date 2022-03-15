@@ -6,7 +6,7 @@
 using namespace System::Drawing;
 struct Coordinates { float x; float y; };
 enum Side { N, S, W, E };
-
+enum Command {SHOOT,STARTUP,STOPUP,STARTRIGHT,STARTLEFT,STOPLEFT,STOPRIGHT,STARTDOWN,STOPDOWN,STOPSHOOT};
 #pragma once
 class IFigure
 {
@@ -29,6 +29,8 @@ public:
 	virtual const bool interactable(IFigure* object) = 0;
 	virtual const float getDistance(IFigure* object) = 0;
 	virtual void makeReaction() =0;
+	virtual void animate() = 0;
+	virtual void doCommand(Command cmd) = 0;
 
 protected:
 	virtual const bool checkColisionWithWall(Side side) = 0 ;

@@ -37,7 +37,9 @@ public:
 	IFigure* nearestFriend(IFigure* object);
 	IFigure* nearestAlien(IFigure* object);
 	IFigure* nearest(IFigure* object);
-	
+	const void animate();
+	const void doCommand(Command cmd);
+	void startGame();
 };
 
 extern Manager* manager;

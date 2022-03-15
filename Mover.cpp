@@ -11,7 +11,6 @@ Mover::Mover(int frameWidth, int frameHeight)
 	_color = Color::FromArgb(rand() % 256, rand() % 256, rand() % 256).ToArgb();
 	_dx = rand() % 21 - 10;
 	_dy = rand() % 21 - 10;
-	_movesMade = 0;
 
 }
 
@@ -118,8 +117,7 @@ void Mover::move()
 
 	_x += _dx;
 	_y += _dy;
-	
-	if (_movesMade < 10) _movesMade++;
+
 }
 
 void Mover::followTo(int x, int y)
@@ -181,7 +179,6 @@ const float Mover::getCurrentSpeed()
 
 void Mover::interact(IFigure* object)
 {	
-
 	Vector2 firstVelocityVector(_dx, _dy);
 	Vector2 secondVelocityVector(object->getdX(), object->getdY());
 
@@ -239,6 +236,14 @@ const float Mover::getDistance(IFigure* object)
 
 	return sqrt(((myCoord.x - objectCoord.x)*(myCoord.x - objectCoord.x)) + ((myCoord.y-objectCoord.y)*(myCoord.y-objectCoord.y)));
 
+}
+
+void Mover::animate()
+{
+}
+
+void Mover::doCommand(Command cmd)
+{
 }
 
 

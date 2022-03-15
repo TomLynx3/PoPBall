@@ -8,7 +8,12 @@
 #include "Explosion.h"
 #include "Manager.h";
 #include <cmath>
-
+#include "Pictures.h"
+#include "Animal.h"
+#include "GameCreature.h"
+#include "Monster.h"
+#include "Hunter.h"
+#include "Bullet.h"
 
 using namespace std;
 
@@ -32,6 +37,9 @@ namespace OOPZerebkovs {
 			InitializeComponent();
 			MouseWheel += gcnew MouseEventHandler(this, &MainForm::Form_MouseWheel);   
 
+			form = this;
+			Pictures::loadAssets();
+			this->animationTimer->Enabled = true;
 			//TODO: Add the constructor code here
 			//
 		}
@@ -57,25 +65,27 @@ namespace OOPZerebkovs {
 	private: System::Windows::Forms::RadioButton^ triangleBtn;
 	private: System::Windows::Forms::RadioButton^ rectangleBtn;
 	private: System::Windows::Forms::RadioButton^ randomBtn;
-	private: System::Windows::Forms::GroupBox^ counterBox;
 
 
-	private: System::Windows::Forms::CheckBox^ extensionsCheckBox;
-	private: System::Windows::Forms::Button^ destroyAll;
-	private: System::Windows::Forms::TextBox^ ballsCount;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::TextBox^ starsCount;
-	private: System::Windows::Forms::TextBox^ trianglesCount;
-	private: System::Windows::Forms::TextBox^ rectanglesCount;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ Rectangles;
-	private: System::Windows::Forms::GroupBox^ charactersBox;
-	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Label^ label2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::Timer^ reactionTimer;
+	private: System::Windows::Forms::Timer^ animationTimer;
+	private: System::Windows::Forms::Button^ startGame;
 
 	private: System::ComponentModel::IContainer^ components;
 	protected:
@@ -104,27 +114,11 @@ namespace OOPZerebkovs {
 			this->triangleBtn = (gcnew System::Windows::Forms::RadioButton());
 			this->rectangleBtn = (gcnew System::Windows::Forms::RadioButton());
 			this->ballBtn = (gcnew System::Windows::Forms::RadioButton());
-			this->counterBox = (gcnew System::Windows::Forms::GroupBox());
-			this->starsCount = (gcnew System::Windows::Forms::TextBox());
-			this->trianglesCount = (gcnew System::Windows::Forms::TextBox());
-			this->rectanglesCount = (gcnew System::Windows::Forms::TextBox());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->Rectangles = (gcnew System::Windows::Forms::Label());
-			this->ballsCount = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->destroyAll = (gcnew System::Windows::Forms::Button());
-			this->extensionsCheckBox = (gcnew System::Windows::Forms::CheckBox());
-			this->charactersBox = (gcnew System::Windows::Forms::GroupBox());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->reactionTimer = (gcnew System::Windows::Forms::Timer(this->components));
+			this->animationTimer = (gcnew System::Windows::Forms::Timer(this->components));
+			this->startGame = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->frame))->BeginInit();
 			this->groupBox1->SuspendLayout();
-			this->counterBox->SuspendLayout();
-			this->charactersBox->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// frame
@@ -135,9 +129,7 @@ namespace OOPZerebkovs {
 			this->frame->TabIndex = 0;
 			this->frame->TabStop = false;
 			this->frame->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainForm::frame_Paint);
-			this->frame->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseDoubleClick);
 			this->frame->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseDown);
-			this->frame->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseMove);
 			this->frame->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseUp);
 			// 
 			// moveTimer
@@ -221,204 +213,46 @@ namespace OOPZerebkovs {
 			this->ballBtn->Text = L"ball";
 			this->ballBtn->UseVisualStyleBackColor = true;
 			// 
-			// counterBox
-			// 
-			this->counterBox->Controls->Add(this->starsCount);
-			this->counterBox->Controls->Add(this->trianglesCount);
-			this->counterBox->Controls->Add(this->rectanglesCount);
-			this->counterBox->Controls->Add(this->label4);
-			this->counterBox->Controls->Add(this->label3);
-			this->counterBox->Controls->Add(this->Rectangles);
-			this->counterBox->Controls->Add(this->ballsCount);
-			this->counterBox->Controls->Add(this->label1);
-			this->counterBox->Location = System::Drawing::Point(664, 190);
-			this->counterBox->Name = L"counterBox";
-			this->counterBox->Size = System::Drawing::Size(174, 159);
-			this->counterBox->TabIndex = 2;
-			this->counterBox->TabStop = false;
-			this->counterBox->Text = L"Counters";
-			this->counterBox->Visible = false;
-			// 
-			// starsCount
-			// 
-			this->starsCount->Location = System::Drawing::Point(108, 124);
-			this->starsCount->Name = L"starsCount";
-			this->starsCount->ReadOnly = true;
-			this->starsCount->Size = System::Drawing::Size(38, 22);
-			this->starsCount->TabIndex = 7;
-			this->starsCount->Text = L"0";
-			this->starsCount->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// trianglesCount
-			// 
-			this->trianglesCount->Location = System::Drawing::Point(108, 90);
-			this->trianglesCount->Name = L"trianglesCount";
-			this->trianglesCount->ReadOnly = true;
-			this->trianglesCount->Size = System::Drawing::Size(38, 22);
-			this->trianglesCount->TabIndex = 6;
-			this->trianglesCount->Text = L"0";
-			this->trianglesCount->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// rectanglesCount
-			// 
-			this->rectanglesCount->Location = System::Drawing::Point(108, 56);
-			this->rectanglesCount->Name = L"rectanglesCount";
-			this->rectanglesCount->ReadOnly = true;
-			this->rectanglesCount->Size = System::Drawing::Size(38, 22);
-			this->rectanglesCount->TabIndex = 5;
-			this->rectanglesCount->Text = L"0";
-			this->rectanglesCount->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(8, 130);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(38, 16);
-			this->label4->TabIndex = 4;
-			this->label4->Text = L"Stars";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(8, 96);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(64, 16);
-			this->label3->TabIndex = 3;
-			this->label3->Text = L"Triangles";
-			// 
-			// Rectangles
-			// 
-			this->Rectangles->AutoSize = true;
-			this->Rectangles->Location = System::Drawing::Point(8, 62);
-			this->Rectangles->Name = L"Rectangles";
-			this->Rectangles->Size = System::Drawing::Size(76, 16);
-			this->Rectangles->TabIndex = 2;
-			this->Rectangles->Text = L"Rectangles";
-			// 
-			// ballsCount
-			// 
-			this->ballsCount->Location = System::Drawing::Point(108, 19);
-			this->ballsCount->Name = L"ballsCount";
-			this->ballsCount->ReadOnly = true;
-			this->ballsCount->Size = System::Drawing::Size(38, 22);
-			this->ballsCount->TabIndex = 1;
-			this->ballsCount->Text = L"0";
-			this->ballsCount->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(7, 22);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(37, 16);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"Balls";
-			// 
-			// destroyAll
-			// 
-			this->destroyAll->Location = System::Drawing::Point(658, 511);
-			this->destroyAll->Name = L"destroyAll";
-			this->destroyAll->Size = System::Drawing::Size(174, 23);
-			this->destroyAll->TabIndex = 0;
-			this->destroyAll->Text = L"Destroy All";
-			this->destroyAll->UseVisualStyleBackColor = true;
-			this->destroyAll->Visible = false;
-			this->destroyAll->Click += gcnew System::EventHandler(this, &MainForm::destroyAll_Click);
-			// 
-			// extensionsCheckBox
-			// 
-			this->extensionsCheckBox->AutoSize = true;
-			this->extensionsCheckBox->Location = System::Drawing::Point(664, 540);
-			this->extensionsCheckBox->Name = L"extensionsCheckBox";
-			this->extensionsCheckBox->Size = System::Drawing::Size(94, 20);
-			this->extensionsCheckBox->TabIndex = 3;
-			this->extensionsCheckBox->Text = L"Extensions";
-			this->extensionsCheckBox->UseVisualStyleBackColor = true;
-			this->extensionsCheckBox->CheckedChanged += gcnew System::EventHandler(this, &MainForm::checkBox1_CheckedChanged);
-			// 
-			// charactersBox
-			// 
-			this->charactersBox->Controls->Add(this->label7);
-			this->charactersBox->Controls->Add(this->label6);
-			this->charactersBox->Controls->Add(this->label5);
-			this->charactersBox->Controls->Add(this->label2);
-			this->charactersBox->Location = System::Drawing::Point(664, 356);
-			this->charactersBox->Name = L"charactersBox";
-			this->charactersBox->Size = System::Drawing::Size(174, 149);
-			this->charactersBox->TabIndex = 4;
-			this->charactersBox->TabStop = false;
-			this->charactersBox->Text = L"Characters";
-			this->charactersBox->Visible = false;
-			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(8, 120);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(108, 16);
-			this->label7->TabIndex = 3;
-			this->label7->Text = L"Star is aggresive";
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(6, 89);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(117, 16);
-			this->label6->TabIndex = 2;
-			this->label6->Text = L"Triangle is coward";
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(6, 57);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(125, 16);
-			this->label5->TabIndex = 1;
-			this->label5->Text = L"Rectangle is careful";
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(5, 27);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(89, 16);
-			this->label2->TabIndex = 0;
-			this->label2->Text = L"Ball is friendly";
-			// 
 			// reactionTimer
 			// 
 			this->reactionTimer->Interval = 1000;
 			this->reactionTimer->Tick += gcnew System::EventHandler(this, &MainForm::reactionTimer_Tick);
+			// 
+			// animationTimer
+			// 
+			this->animationTimer->Enabled = true;
+			this->animationTimer->Interval = 25;
+			this->animationTimer->Tick += gcnew System::EventHandler(this, &MainForm::animationTimer_Tick);
+			// 
+			// startGame
+			// 
+			this->startGame->Location = System::Drawing::Point(658, 537);
+			this->startGame->Name = L"startGame";
+			this->startGame->Size = System::Drawing::Size(187, 23);
+			this->startGame->TabIndex = 2;
+			this->startGame->Text = L"Start Game";
+			this->startGame->UseVisualStyleBackColor = true;
+			this->startGame->Click += gcnew System::EventHandler(this, &MainForm::startGame_Click);
 			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(850, 572);
-			this->Controls->Add(this->charactersBox);
-			this->Controls->Add(this->destroyAll);
-			this->Controls->Add(this->extensionsCheckBox);
-			this->Controls->Add(this->counterBox);
+			this->Controls->Add(this->startGame);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->frame);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::Fixed3D;
 			this->KeyPreview = true;
 			this->Name = L"MainForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Pop Ball V5: Battle";
+			this->Text = L"Pop Ball V6: Hunter";
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MainForm::MainForm_KeyDown);
 			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &MainForm::MainForm_KeyUp);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->frame))->EndInit();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
-			this->counterBox->ResumeLayout(false);
-			this->counterBox->PerformLayout();
-			this->charactersBox->ResumeLayout(false);
-			this->charactersBox->PerformLayout();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -429,63 +263,70 @@ namespace OOPZerebkovs {
 		int x1 = 0;
 		int y1 = 0;
 		IFigure* object;
+		bool isGameStarted = false;
+		//Pictures::loadAssets();
+		//this->animationTimer->Enabled = true;
+	public: static MainForm^ form;
+
 
 	private: System::Void frame_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 		
 		manager->drawFrame(e->Graphics);
+		
+
+		/*List<Bitmap^>^ assets = Pictures::getHeroAssets("Minotaur");
+		e->Graphics->DrawImage(assets[0], 50, 50, 75, 75);*/
+
 
 	}
 	private: System::Void frame_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 
-		Coordinates coord = Coordinates{ (float)e->X, (float)e->Y };
+		//Coordinates coord = Coordinates{ (float)e->X, (float)e->Y };
 
-		IFigure* fig = manager->search(coord);
+		////manager->add(new Animal(frame->Width, frame->Height, coord.x, coord.y));
 
-		if (!fig) {
+		//IFigure* fig = manager->search(coord);
 
-			
-			if (ballBtn->Checked) {
-				object = new Ball(frame->Width, frame->Height);
-				object->setPos(e->X, e->Y);
-			}
-			else if (rectangleBtn->Checked) {
-				object = new Square(frame->Width, frame->Height, coord.x, coord.y);
-				object->setPos(e->X, e->Y);
-			}
-			else if (triangleBtn->Checked) {
-				object = new Triangle(frame->Width, frame->Height, coord.x, coord.y);
-				object->setPos(e->X, e->Y);
-			}
-			else if (starBtn->Checked) {
-				object = new Star(frame->Width, frame->Height, coord.x, coord.y);
-				object->setPos(e->X, e->Y);
-			}
-			else if (randomBtn->Checked) {
-				object = manager->createRandomFigure(frame->Width, frame->Height, coord.x, coord.y);
-				object->setPos(e->X, e->Y);
-			}
+		//if (!fig) {
+
+		//	
+		//	if (ballBtn->Checked) {
+		//	//	object = new Ball(frame->Width, frame->Height);
+		//	//	object->setPos(e->X, e->Y);
+		//	//	object = new Animal(frame->Width, frame->Height, coord.x, coord.y);
+		//		object = new Hunter(frame->Width, frame->Height, coord.x, coord.y, "Pirate");
+		//	}
+		//	else if (rectangleBtn->Checked) {
+		//		object = new Square(frame->Width, frame->Height, coord.x, coord.y);
+		//		object->setPos(e->X, e->Y);
+		//	}
+		//	else if (triangleBtn->Checked) {
+		//		object = new Triangle(frame->Width, frame->Height, coord.x, coord.y);
+		//		object->setPos(e->X, e->Y);
+		//	}
+		//	else if (starBtn->Checked) {
+		//		object = new Star(frame->Width, frame->Height, coord.x, coord.y);
+		//		object->setPos(e->X, e->Y);
+		//	}
+		//	else if (randomBtn->Checked) {
+		//		object = manager->createRandomFigure(frame->Width, frame->Height, coord.x, coord.y);
+		//		object->setPos(e->X, e->Y);
+		//	}
 
 
-			tickCount = 0;
-			isMousePressed = true;
+		//	tickCount = 0;
+		//	isMousePressed = true;
 
-			x1 = e->X;
-			y1 = e->Y;
+		//	x1 = e->X;
+		//	y1 = e->Y;
 
-		}
-		else {
-			manager->remove(fig);
-		}
+		//}
+		//else {
+		//	manager->remove(fig);
+		//}
 
 	
 
-	}
-	private: System::Void frame_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		
-
-	}
-	private: System::Void frame_MouseDoubleClick(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		
 	}
 
 	private: void Form_MouseWheel(Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
@@ -507,22 +348,6 @@ namespace OOPZerebkovs {
 			tickCount++;
 		}
 
-		int ballCount = manager->countOf(&typeid(Ball));
-		int triangleCount = manager->countOf(&typeid(Triangle));
-		int rectangleCount = manager->countOf(&typeid(Square));
-		int starCount = manager->countOf(&typeid(Star));
-
-		ballsCount->Text = ballCount.ToString();
-		trianglesCount->Text = triangleCount.ToString();
-		rectanglesCount->Text = rectangleCount.ToString();
-		starsCount->Text = starCount.ToString();
-		
-		
-		ballCount > 0 ? ballsCount->BackColor = Color::Purple : ballsCount->BackColor = Color::White;
-		triangleCount > 0 ? trianglesCount->BackColor = Color::Yellow : trianglesCount->BackColor = Color::White;
-		rectangleCount > 0 ? rectanglesCount->BackColor = Color::Aqua : rectanglesCount->BackColor = Color::White;
-		starCount > 0 ? starsCount->BackColor = Color::Brown : starsCount->BackColor = Color::White;
-
 	}
 private: System::Void drawTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
 
@@ -530,7 +355,7 @@ private: System::Void drawTimer_Tick(System::Object^ sender, System::EventArgs^ 
 
 	}
 private: System::Void frame_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		isMousePressed = false;
+		/*isMousePressed = false;
 
 		if (tickCount == 0) {
 			tickCount = 1;
@@ -547,7 +372,7 @@ private: System::Void frame_MouseUp(System::Object^ sender, System::Windows::For
 			object->setSpeed(deltaX / tickCount, deltaY/ tickCount);
 			
 			object = nullptr;
-		}
+		}*/
 		
 	}
 
@@ -555,18 +380,53 @@ private: System::Void MainForm_KeyDown(System::Object^ sender, System::Windows::
 		
 	if (e->KeyCode == Keys::ControlKey) {
 		moveTimer->Enabled = false;
-		}
+	}
+
+
+	//Try to combine actions
+	else if (e->KeyCode == Keys::W) {
+		manager->doCommand(Command::STARTUP);
+	}
+	else if (e->KeyCode == Keys::A) {
+		manager->doCommand(Command::STARTLEFT);
+	}
+	else if (e->KeyCode == Keys::D) {
+		manager->doCommand(Command::STARTRIGHT);
+	}
+	else if (e->KeyCode == Keys::S) {
+		manager->doCommand(Command::STARTDOWN);
+	}
+	else if (e->KeyCode == Keys::Space) {
+		
+		manager->doCommand(Command::SHOOT);
+
+	}
 	}
 private: System::Void MainForm_KeyUp(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 
-		if (e->KeyCode == Keys::ControlKey) {
-			moveTimer->Enabled = true;
-		}
+	if (e->KeyCode == Keys::ControlKey) {
+		moveTimer->Enabled = true;
+	}
+	else if (e->KeyCode == Keys::W) {
+		manager->doCommand(Command::STOPUP);
+	}
+	else if (e->KeyCode == Keys::A) {
+		manager->doCommand(Command::STOPLEFT);
+	}
+	else if (e->KeyCode == Keys::D) {
+		manager->doCommand(Command::STOPRIGHT);
+	}
+	else if (e->KeyCode == Keys::S) {
+		manager->doCommand(Command::STOPDOWN);
+	}
+	else if (e->KeyCode == Keys::Space) {
+		manager->doCommand(Command::STOPSHOOT);
+	}
 	}
 
 private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 			
-			if (extensionsCheckBox->Checked) {
+			/*if (extensionsCheckBox->Checked) {
 				counterBox->Visible = true;
 				destroyAll->Visible = true;
 				charactersBox->Visible = true;
@@ -578,7 +438,7 @@ private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::E
 				destroyAll->Visible = false;
 				charactersBox->Visible = false;
 				reactionTimer->Enabled = false;
-			}
+			}*/
 			
 	}
 private: System::Void destroyAll_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -587,6 +447,16 @@ private: System::Void destroyAll_Click(System::Object^ sender, System::EventArgs
 private: System::Void reactionTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
 	manager->makeReactions();
 	}
+private: System::Void animationTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
+	manager->animate();
+}
+private: System::Void startGame_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	if (!isGameStarted) {
+		manager->startGame();
+		isGameStarted = true;
+	}
+}
 };
 
 }

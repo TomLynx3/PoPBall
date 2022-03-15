@@ -118,30 +118,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animal.cpp" />
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Explosion.cpp" />
+    <ClCompile Include="GameCreature.cpp" />
+    <ClCompile Include="HeroAssets.cpp" />
+    <ClCompile Include="Hunter.cpp" />
     <ClCompile Include="IFigure.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Manager.cpp" />
+    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Mover.cpp" />
     <ClCompile Include="Rotator.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Star.cpp" />
+    <ClCompile Include="StateQueue.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animal.h" />
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Explosion.h" />
+    <ClInclude Include="GameCreature.h" />
+    <ClInclude Include="HeroAssets.h" />
+    <ClInclude Include="Hunter.h" />
     <ClInclude Include="IFigure.h" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Manager.h" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="Mover.h" />
+    <ClInclude Include="Pictures.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Rotator.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Star.h" />
+    <ClInclude Include="StateQueue.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
@@ -149,6 +165,49 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pictures.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_0.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_1.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_2.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_3.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_4.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_5.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_6.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_0.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_1.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_2.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_3.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_4.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_5.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_6.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_0.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_1.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_2.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_3.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_4.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_5.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_6.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_0.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_1.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_10.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_11.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_12.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_13.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_14.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_15.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_16.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_17.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_2.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_3.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_4.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_5.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_6.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_7.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_8.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_9.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-657149-free-elven-land-game-battle-backgrounds\PNG\game_background_1\layers\battleground.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

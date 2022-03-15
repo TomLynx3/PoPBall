@@ -1,4 +1,7 @@
 #include "Manager.h"
+#include "Pictures.h"
+#include "MainForm.h"
+
 Manager* manager;
 
 
@@ -35,6 +38,7 @@ void Manager::add(IFigure* object)
 void Manager::drawFrame(Graphics^ graphics)
 {
 	graphics->FillRectangle(% SolidBrush(Color::FromArgb(217, 212, 212)), 0, 0, _frameWidth, _frameHeight);
+	//graphics->DrawImage(Pictures::bgImage, 0, 0,_frameWidth,_frameHeight);
 
 	for (int i = 0; i < MAX_OBJECTS; i++) {
 		if (_objects[i]) {
@@ -332,5 +336,30 @@ IFigure* Manager::nearest(IFigure* object)
 		}
 	}
 	return nearest;
+}
+
+const void Manager::animate()
+{
+	for (int i = 0; i < MAX_OBJECTS; i++) {
+		if (_objects[i]) {
+			_objects[i]->animate();
+		}
+	}
+}
+
+const void Manager::doCommand(Command cmd)
+{
+	for (int i = 0; i < MAX_OBJECTS; i++) {
+		if (_objects[i]) {
+			_objects[i]->doCommand(cmd);
+		}
+	}
+}
+
+void Manager::startGame()
+{
+	int frameWidth = OOPZerebkovs::MainForm::form->frame->Width;
+	int frameHeight = OOPZerebkovs::MainForm::form->frame->Height;
+	add(new Hunter(frameWidth, frameHeight, frameWidth/2, frameHeight/2, "Pirate"));
 }
 

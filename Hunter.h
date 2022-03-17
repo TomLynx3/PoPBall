@@ -1,7 +1,7 @@
 #pragma once
 #define _USE_MATH_DEFINES
 #include "GameCreature.h"
-
+#include "Vector2.h"
 class Hunter :
     public GameCreature
 {
@@ -10,7 +10,13 @@ public:
     void move() override;
     void doCommand(Command cmd) override;
     const void draw(Graphics^ graphics) override;
+    void interact(IFigure* object) override;
+    void addAmmo(int amount);
+    void addHp(int amount);
+   
 private:
     float _getRotationAngle(Point pt);
+    const Vector2 _getVectorToCursor(int speedAcceleration);
+
 };
 

@@ -27,6 +27,7 @@ public:
 	void move();
 	void makeReactions();
 	IFigure* search(Coordinates coord);
+	IFigure* search(const type_info* type);
 	void remove(IFigure* object);
 	void increaseSpeed();
 	void decreaseSpeed();
@@ -39,7 +40,7 @@ public:
 	IFigure* nearest(IFigure* object);
 	const void animate();
 	const void doCommand(Command cmd);
-	void startGame();
+	  
 };
 
 extern Manager* manager;

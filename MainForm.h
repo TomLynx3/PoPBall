@@ -14,6 +14,8 @@
 #include "Monster.h"
 #include "Hunter.h"
 #include "Bullet.h"
+#include "AmmoPack.h"
+#include "LifePoints.h"
 
 using namespace std;
 
@@ -59,33 +61,28 @@ namespace OOPZerebkovs {
 	private: System::Windows::Forms::Timer^ moveTimer;
 	public:
 	private: System::Windows::Forms::Timer^ drawTimer;
-	private: System::Windows::Forms::GroupBox^ groupBox1;
-	private: System::Windows::Forms::RadioButton^ ballBtn;
-	private: System::Windows::Forms::RadioButton^ starBtn;
-	private: System::Windows::Forms::RadioButton^ triangleBtn;
-	private: System::Windows::Forms::RadioButton^ rectangleBtn;
-	private: System::Windows::Forms::RadioButton^ randomBtn;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	private: System::Windows::Forms::Timer^ reactionTimer;
 	private: System::Windows::Forms::Timer^ animationTimer;
 	private: System::Windows::Forms::Button^ startGame;
+	private: System::Windows::Forms::GroupBox^ stats;
+	public: System::Windows::Forms::PictureBox^ armor;
+	private:
+
+	private: System::Windows::Forms::Label^ armorAmount;
+	private: System::Windows::Forms::Label^ hpAmount;
+	public: System::Windows::Forms::PictureBox^ hp;
+	private: System::Windows::Forms::Label^ ammoAmount;
+	public:
+
+	public: System::Windows::Forms::PictureBox^ ammoIcon;
+	private: System::Windows::Forms::Timer^ consumambleTimer;
+	public:
+	private:
+	public:
+
+	private:
+	private:
+
+
 
 	private: System::ComponentModel::IContainer^ components;
 	protected:
@@ -108,17 +105,21 @@ namespace OOPZerebkovs {
 			this->frame = (gcnew System::Windows::Forms::PictureBox());
 			this->moveTimer = (gcnew System::Windows::Forms::Timer(this->components));
 			this->drawTimer = (gcnew System::Windows::Forms::Timer(this->components));
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->randomBtn = (gcnew System::Windows::Forms::RadioButton());
-			this->starBtn = (gcnew System::Windows::Forms::RadioButton());
-			this->triangleBtn = (gcnew System::Windows::Forms::RadioButton());
-			this->rectangleBtn = (gcnew System::Windows::Forms::RadioButton());
-			this->ballBtn = (gcnew System::Windows::Forms::RadioButton());
-			this->reactionTimer = (gcnew System::Windows::Forms::Timer(this->components));
 			this->animationTimer = (gcnew System::Windows::Forms::Timer(this->components));
 			this->startGame = (gcnew System::Windows::Forms::Button());
+			this->stats = (gcnew System::Windows::Forms::GroupBox());
+			this->ammoAmount = (gcnew System::Windows::Forms::Label());
+			this->ammoIcon = (gcnew System::Windows::Forms::PictureBox());
+			this->hpAmount = (gcnew System::Windows::Forms::Label());
+			this->hp = (gcnew System::Windows::Forms::PictureBox());
+			this->armorAmount = (gcnew System::Windows::Forms::Label());
+			this->armor = (gcnew System::Windows::Forms::PictureBox());
+			this->consumambleTimer = (gcnew System::Windows::Forms::Timer(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->frame))->BeginInit();
-			this->groupBox1->SuspendLayout();
+			this->stats->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ammoIcon))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->hp))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->armor))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// frame
@@ -144,80 +145,6 @@ namespace OOPZerebkovs {
 			this->drawTimer->Interval = 10;
 			this->drawTimer->Tick += gcnew System::EventHandler(this, &MainForm::drawTimer_Tick);
 			// 
-			// groupBox1
-			// 
-			this->groupBox1->Controls->Add(this->randomBtn);
-			this->groupBox1->Controls->Add(this->starBtn);
-			this->groupBox1->Controls->Add(this->triangleBtn);
-			this->groupBox1->Controls->Add(this->rectangleBtn);
-			this->groupBox1->Controls->Add(this->ballBtn);
-			this->groupBox1->Location = System::Drawing::Point(658, 12);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(180, 172);
-			this->groupBox1->TabIndex = 1;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Shape";
-			// 
-			// randomBtn
-			// 
-			this->randomBtn->AutoSize = true;
-			this->randomBtn->Location = System::Drawing::Point(6, 138);
-			this->randomBtn->Name = L"randomBtn";
-			this->randomBtn->Size = System::Drawing::Size(74, 20);
-			this->randomBtn->TabIndex = 4;
-			this->randomBtn->TabStop = true;
-			this->randomBtn->Text = L"random";
-			this->randomBtn->UseVisualStyleBackColor = true;
-			// 
-			// starBtn
-			// 
-			this->starBtn->AutoSize = true;
-			this->starBtn->Location = System::Drawing::Point(6, 112);
-			this->starBtn->Name = L"starBtn";
-			this->starBtn->Size = System::Drawing::Size(50, 20);
-			this->starBtn->TabIndex = 3;
-			this->starBtn->TabStop = true;
-			this->starBtn->Text = L"star";
-			this->starBtn->UseVisualStyleBackColor = true;
-			// 
-			// triangleBtn
-			// 
-			this->triangleBtn->AutoSize = true;
-			this->triangleBtn->Location = System::Drawing::Point(6, 86);
-			this->triangleBtn->Name = L"triangleBtn";
-			this->triangleBtn->Size = System::Drawing::Size(72, 20);
-			this->triangleBtn->TabIndex = 2;
-			this->triangleBtn->TabStop = true;
-			this->triangleBtn->Text = L"triangle";
-			this->triangleBtn->UseVisualStyleBackColor = true;
-			// 
-			// rectangleBtn
-			// 
-			this->rectangleBtn->AutoSize = true;
-			this->rectangleBtn->Location = System::Drawing::Point(6, 60);
-			this->rectangleBtn->Name = L"rectangleBtn";
-			this->rectangleBtn->Size = System::Drawing::Size(84, 20);
-			this->rectangleBtn->TabIndex = 1;
-			this->rectangleBtn->TabStop = true;
-			this->rectangleBtn->Text = L"rectangle";
-			this->rectangleBtn->UseVisualStyleBackColor = true;
-			// 
-			// ballBtn
-			// 
-			this->ballBtn->AutoSize = true;
-			this->ballBtn->Location = System::Drawing::Point(6, 34);
-			this->ballBtn->Name = L"ballBtn";
-			this->ballBtn->Size = System::Drawing::Size(50, 20);
-			this->ballBtn->TabIndex = 0;
-			this->ballBtn->TabStop = true;
-			this->ballBtn->Text = L"ball";
-			this->ballBtn->UseVisualStyleBackColor = true;
-			// 
-			// reactionTimer
-			// 
-			this->reactionTimer->Interval = 1000;
-			this->reactionTimer->Tick += gcnew System::EventHandler(this, &MainForm::reactionTimer_Tick);
-			// 
 			// animationTimer
 			// 
 			this->animationTimer->Enabled = true;
@@ -234,14 +161,100 @@ namespace OOPZerebkovs {
 			this->startGame->UseVisualStyleBackColor = true;
 			this->startGame->Click += gcnew System::EventHandler(this, &MainForm::startGame_Click);
 			// 
+			// stats
+			// 
+			this->stats->Controls->Add(this->ammoAmount);
+			this->stats->Controls->Add(this->ammoIcon);
+			this->stats->Controls->Add(this->hpAmount);
+			this->stats->Controls->Add(this->hp);
+			this->stats->Controls->Add(this->armorAmount);
+			this->stats->Controls->Add(this->armor);
+			this->stats->Location = System::Drawing::Point(658, 12);
+			this->stats->Name = L"stats";
+			this->stats->Size = System::Drawing::Size(187, 262);
+			this->stats->TabIndex = 3;
+			this->stats->TabStop = false;
+			this->stats->Text = L"Stats";
+			// 
+			// ammoAmount
+			// 
+			this->ammoAmount->Font = (gcnew System::Drawing::Font(L"Yu Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(186)));
+			this->ammoAmount->ForeColor = System::Drawing::Color::Lime;
+			this->ammoAmount->Location = System::Drawing::Point(71, 168);
+			this->ammoAmount->Name = L"ammoAmount";
+			this->ammoAmount->Size = System::Drawing::Size(92, 50);
+			this->ammoAmount->TabIndex = 5;
+			this->ammoAmount->Text = L"0";
+			this->ammoAmount->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// ammoIcon
+			// 
+			this->ammoIcon->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->ammoIcon->Location = System::Drawing::Point(6, 168);
+			this->ammoIcon->Name = L"ammoIcon";
+			this->ammoIcon->Size = System::Drawing::Size(60, 60);
+			this->ammoIcon->TabIndex = 4;
+			this->ammoIcon->TabStop = false;
+			this->ammoIcon->WaitOnLoad = true;
+			this->ammoIcon->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainForm::ammoIcon_Paint);
+			// 
+			// hpAmount
+			// 
+			this->hpAmount->Font = (gcnew System::Drawing::Font(L"Yu Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(186)));
+			this->hpAmount->ForeColor = System::Drawing::Color::Red;
+			this->hpAmount->Location = System::Drawing::Point(71, 102);
+			this->hpAmount->Name = L"hpAmount";
+			this->hpAmount->Size = System::Drawing::Size(92, 50);
+			this->hpAmount->TabIndex = 3;
+			this->hpAmount->Text = L"0 %";
+			this->hpAmount->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// hp
+			// 
+			this->hp->Location = System::Drawing::Point(6, 102);
+			this->hp->Name = L"hp";
+			this->hp->Size = System::Drawing::Size(60, 60);
+			this->hp->TabIndex = 2;
+			this->hp->TabStop = false;
+			this->hp->WaitOnLoad = true;
+			this->hp->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainForm::hpIcon_Paint);
+			// 
+			// armorAmount
+			// 
+			this->armorAmount->Font = (gcnew System::Drawing::Font(L"Yu Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(186)));
+			this->armorAmount->Location = System::Drawing::Point(71, 34);
+			this->armorAmount->Name = L"armorAmount";
+			this->armorAmount->Size = System::Drawing::Size(92, 50);
+			this->armorAmount->TabIndex = 1;
+			this->armorAmount->Text = L"0";
+			this->armorAmount->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// armor
+			// 
+			this->armor->Location = System::Drawing::Point(6, 34);
+			this->armor->Name = L"armor";
+			this->armor->Size = System::Drawing::Size(60, 60);
+			this->armor->TabIndex = 0;
+			this->armor->TabStop = false;
+			this->armor->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainForm::armor_Paint);
+			// 
+			// consumambleTimer
+			// 
+			this->consumambleTimer->Interval = 3500;
+			this->consumambleTimer->Tick += gcnew System::EventHandler(this, &MainForm::consumambleTimer_Tick);
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(850, 572);
+			this->Controls->Add(this->stats);
 			this->Controls->Add(this->startGame);
-			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->frame);
+			this->ForeColor = System::Drawing::Color::Blue;
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::Fixed3D;
 			this->KeyPreview = true;
 			this->Name = L"MainForm";
@@ -250,8 +263,10 @@ namespace OOPZerebkovs {
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MainForm::MainForm_KeyDown);
 			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &MainForm::MainForm_KeyUp);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->frame))->EndInit();
-			this->groupBox1->ResumeLayout(false);
-			this->groupBox1->PerformLayout();
+			this->stats->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ammoIcon))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->hp))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->armor))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -264,6 +279,7 @@ namespace OOPZerebkovs {
 		int y1 = 0;
 		IFigure* object;
 		bool isGameStarted = false;
+		GameCreature* hunter;
 		//Pictures::loadAssets();
 		//this->animationTimer->Enabled = true;
 	public: static MainForm^ form;
@@ -274,58 +290,19 @@ namespace OOPZerebkovs {
 		manager->drawFrame(e->Graphics);
 		
 
-		/*List<Bitmap^>^ assets = Pictures::getHeroAssets("Minotaur");
-		e->Graphics->DrawImage(assets[0], 50, 50, 75, 75);*/
+		if (isGameStarted) {
 
 
+			armorAmount->Text = hunter->getArmor().ToString();
+			hpAmount->Text = hunter->getHpInPercentages().ToString() + "%";
+			ammoAmount->Text = hunter->getAmmoAmount().ToString();
+
+			hpAmount->ForeColor = Color::FromArgb(hunter->getHpLabelColor());
+			ammoAmount->ForeColor = Color::FromArgb(hunter->getAmmoLabelColor());
+		}
 	}
 	private: System::Void frame_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
 
-		//Coordinates coord = Coordinates{ (float)e->X, (float)e->Y };
-
-		////manager->add(new Animal(frame->Width, frame->Height, coord.x, coord.y));
-
-		//IFigure* fig = manager->search(coord);
-
-		//if (!fig) {
-
-		//	
-		//	if (ballBtn->Checked) {
-		//	//	object = new Ball(frame->Width, frame->Height);
-		//	//	object->setPos(e->X, e->Y);
-		//	//	object = new Animal(frame->Width, frame->Height, coord.x, coord.y);
-		//		object = new Hunter(frame->Width, frame->Height, coord.x, coord.y, "Pirate");
-		//	}
-		//	else if (rectangleBtn->Checked) {
-		//		object = new Square(frame->Width, frame->Height, coord.x, coord.y);
-		//		object->setPos(e->X, e->Y);
-		//	}
-		//	else if (triangleBtn->Checked) {
-		//		object = new Triangle(frame->Width, frame->Height, coord.x, coord.y);
-		//		object->setPos(e->X, e->Y);
-		//	}
-		//	else if (starBtn->Checked) {
-		//		object = new Star(frame->Width, frame->Height, coord.x, coord.y);
-		//		object->setPos(e->X, e->Y);
-		//	}
-		//	else if (randomBtn->Checked) {
-		//		object = manager->createRandomFigure(frame->Width, frame->Height, coord.x, coord.y);
-		//		object->setPos(e->X, e->Y);
-		//	}
-
-
-		//	tickCount = 0;
-		//	isMousePressed = true;
-
-		//	x1 = e->X;
-		//	y1 = e->Y;
-
-		//}
-		//else {
-		//	manager->remove(fig);
-		//}
-
-	
 
 	}
 
@@ -355,25 +332,6 @@ private: System::Void drawTimer_Tick(System::Object^ sender, System::EventArgs^ 
 
 	}
 private: System::Void frame_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-		/*isMousePressed = false;
-
-		if (tickCount == 0) {
-			tickCount = 1;
-		}
-
-		if (object) {
-
-
-			manager->add(object);
-
-			float deltaX = (e->X - x1) == 0 ? 2 : (e->X - x1);
-			float deltaY = (e->Y - y1) == 0 ? 2 : (e->Y - y1);
-
-			object->setSpeed(deltaX / tickCount, deltaY/ tickCount);
-			
-			object = nullptr;
-		}*/
-		
 	}
 
 private: System::Void MainForm_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
@@ -426,26 +384,10 @@ private: System::Void MainForm_KeyUp(System::Object^ sender, System::Windows::Fo
 
 private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 			
-			/*if (extensionsCheckBox->Checked) {
-				counterBox->Visible = true;
-				destroyAll->Visible = true;
-				charactersBox->Visible = true;
-				reactionTimer->Enabled = true;
-				
-			}
-			else {
-				counterBox->Visible = false;
-				destroyAll->Visible = false;
-				charactersBox->Visible = false;
-				reactionTimer->Enabled = false;
-			}*/
 			
 	}
 private: System::Void destroyAll_Click(System::Object^ sender, System::EventArgs^ e) {
 		manager->explodeAllObjects();
-	}
-private: System::Void reactionTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
-	manager->makeReactions();
 	}
 private: System::Void animationTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
 	manager->animate();
@@ -453,10 +395,44 @@ private: System::Void animationTimer_Tick(System::Object^ sender, System::EventA
 private: System::Void startGame_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 	if (!isGameStarted) {
-		manager->startGame();
+		hunter = new Hunter(frame->Width, frame->Height, frame->Width / 2, frame->Height / 2, "Pirate");
+		manager->add(hunter);
 		isGameStarted = true;
+		consumambleTimer->Enabled = true;
 	}
 }
+private: System::Void armor_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	e->Graphics->DrawImage(Pictures::armorIcon,Point(0,0));
+	
+	}
+private: System::Void hpIcon_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	e->Graphics->DrawImage(Pictures::hpIcon, Point(0, 0));
+}
+private: System::Void ammoIcon_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	e->Graphics->DrawImage(Pictures::ammoIcon, Point(0, 0));
+}
+private: System::Void consumambleTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
+
+	int number = rand() % 4;
+	if (number == 0) {
+		int random = rand() % 2;
+
+		if (random == 0) {
+			manager->place(new AmmoPack(frame->Width, frame->Height, 0, 0));
+		}
+		else {
+			manager->place(new LifePoints(frame->Width, frame->Height, 0, 0));
+		}
+	}
+	else if (number == 3) {
+
+		IFigure* consumable = manager->search(&typeid(Consumable));
+
+		if (consumable) {
+			manager->remove(consumable);
+		}
+	}
+	}
 };
 
 }

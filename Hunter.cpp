@@ -1,15 +1,16 @@
 #include "Hunter.h"
 #include "MainForm.h"
 
-
-
-
-
 Hunter::Hunter(int frameWidth, int frameHeight, int x, int y, string name) :GameCreature(frameWidth, frameHeight, x, y, name)
 {
 	_dx = 10.0;
 	_dy = 10.0;
 	_state =CreatureState::IDLE;
+	_dmg = 3;
+	_hp = 10;
+	_maxHP = 10;
+	_armor = 2;
+	_ammo = 5;
 }
 
 const void Hunter::draw(Graphics^ graphics)
@@ -27,13 +28,49 @@ const void Hunter::draw(Graphics^ graphics)
 	
 	Bitmap^ img = Pictures::rotateImage(assets[_currentImageIndex], angle, graphics);
 
+
+	GameCreature::_drawHpBar(graphics);
+
 	graphics->DrawImage(img, displayRectangle);
 
-	//Memory leak! I thought managed objects are disposed by garbage collector!
 	delete img;
 	
 	
 }
+
+void Hunter::interact(IFigure* object)
+{
+	Bullet* bullet = dynamic_cast<Bullet*>(object);
+
+	if (bullet) {
+		
+	}
+}
+
+void Hunter::addAmmo(int amount)
+{
+	int ammo = _ammo + amount;
+	
+	if (ammo > 15) {
+		_ammo = 15;
+	}
+	else {
+		_ammo = ammo;
+	}
+}
+
+void Hunter::addHp(int amount)
+{
+	int hp = _hp + amount;
+
+	if (hp > _maxHP) {
+		_hp = _maxHP;
+	}
+	else {
+
+	}
+}
+
 
 float Hunter::_getRotationAngle(Point pt)
 {
@@ -45,6 +82,23 @@ float Hunter::_getRotationAngle(Point pt)
 	Vector2 vec3 = vec.substract(vec1);
 
 	return atan2(vec3.getY(), vec3.getX()) * (180 / M_PI);
+}
+
+const Vector2 Hunter::_getVectorToCursor(int speedAcceleration)
+{
+	Point pt = System::Windows::Forms::Control::MousePosition;
+	pt = OOPZerebkovs::MainForm::form->frame->PointToClient(pt);
+
+	float deltaX = pt.X - _x;
+	float deltaY = pt.Y - _y;
+
+	float angle = atan2(deltaY, deltaX);
+
+	float dx = speedAcceleration * cos(angle);
+
+	float dy = speedAcceleration * sin(angle);
+
+	return Vector2(dx,dy);
 }
 
 
@@ -69,26 +123,15 @@ void Hunter::move()
 
 void Hunter::doCommand(Command cmd)
 {
-	Point pt = System::Windows::Forms::Control::MousePosition;
-	pt = OOPZerebkovs::MainForm::form->frame->PointToClient(pt);
+	
 	switch (cmd)
 	{
 	case Command::STARTUP:
 		_setState(CreatureState::WALK);
-
-		
 		{
-			float deltaX = pt.X - _x;
-			float deltaY = pt.Y - _y;
-
-			float angle = atan2(deltaY, deltaX);
-
-			float dx = 3 * cos(angle);
-
-			float dy = 3 * sin(angle);
-
-			_dx = dx;
-			_dy = dy;
+			Vector2 vec = _getVectorToCursor(3);
+			_dx = vec.getX();
+			_dy = vec.getY();
 		}
 		break;
 	case Command::STARTLEFT:
@@ -104,19 +147,11 @@ void Hunter::doCommand(Command cmd)
 	case Command::STARTDOWN:
 		_setState(CreatureState::WALK);
 		{
-			{
-				float deltaX = pt.X - _x;
-				float deltaY = pt.Y - _y;
 
-				float angle = atan2(deltaY, deltaX);
-
-				float dx = 3 * cos(angle);
-
-				float dy = 3 * sin(angle);
-
-				_dx = -dx;
-				_dy = -dy;
-			}
+		Vector2 vec = _getVectorToCursor(3);
+		_dx = -vec.getX();
+		_dy = -vec.getY();
+			
 		}
 		break;
 	case Command::STOPLEFT:
@@ -127,32 +162,43 @@ void Hunter::doCommand(Command cmd)
 		_dy = 0;
 		_dx = 0;
 		break;
-	case Command::SHOOT:
-		_setState(CreatureState::ATTACK);
+	case Command::SHOOT:	
 	{
-		float deltaX = pt.X - _x;
-		float deltaY = pt.Y - _y;
+		if (_ammo == 0) {
+			return;
+		}
+		_setState(CreatureState::ATTACK);
 
-		float angle = atan2(deltaY, deltaX);
+		Vector2 vec = _getVectorToCursor(5);
 
-		float dx = 5 * cos(angle);
-
-		float dy = 5 * sin(angle);
-
-		Bullet* ball = new Bullet(_frameWidth, _frameHeight,_x + 10,_y);
+		Bullet* ball = new Bullet(_frameWidth, _frameHeight,_x + 10,_y,_dmg);
 	
-		ball->setSpeed(dx, dy);
+		ball->setSpeed(vec.getX(), vec.getY());
+
 		manager->add(ball);
+		_ammo--;
 		break;
 	}
 	case Command::STOPSHOOT:
 	{
 		
 		_setState(CreatureState::IDLE);
+		break;
 	}
+	case Command::DIE:
+	{
+		_setState(CreatureState::DYING);
 		
-	break;
-
+		break;
+	}
+	case Command::HURT:
+	{
+		_setState(CreatureState::HURT);
+		break;
+	}
+	case Command::STOPHURT:
+		_setState(CreatureState::IDLE);
+			break;
 	default:
 		break;
 	}

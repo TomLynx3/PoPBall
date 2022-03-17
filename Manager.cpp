@@ -127,6 +127,18 @@ IFigure* Manager::search(Coordinates coord)
 	return nullptr;
 }
 
+IFigure* Manager::search(const type_info* type)
+{
+	for (int i = 0; i < MAX_OBJECTS; i++) {
+		IFigure* obj = _objects[i];
+
+		if (obj && typeid(*obj) == *type) {
+			return obj;
+		}
+	}
+	return nullptr;
+}
+
 void Manager::remove(IFigure* object)
 {
 	for (int i= 0; i < MAX_OBJECTS; i++) {
@@ -356,10 +368,4 @@ const void Manager::doCommand(Command cmd)
 	}
 }
 
-void Manager::startGame()
-{
-	int frameWidth = OOPZerebkovs::MainForm::form->frame->Width;
-	int frameHeight = OOPZerebkovs::MainForm::form->frame->Height;
-	add(new Hunter(frameWidth, frameHeight, frameWidth/2, frameHeight/2, "Pirate"));
-}
 

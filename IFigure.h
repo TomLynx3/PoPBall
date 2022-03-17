@@ -1,4 +1,4 @@
-
+#pragma once
 #include <stdlib.h>
 #include <math.h>
 #include <typeinfo>
@@ -6,8 +6,23 @@
 using namespace System::Drawing;
 struct Coordinates { float x; float y; };
 enum Side { N, S, W, E };
-enum Command {SHOOT,STARTUP,STOPUP,STARTRIGHT,STARTLEFT,STOPLEFT,STOPRIGHT,STARTDOWN,STOPDOWN,STOPSHOOT};
-#pragma once
+enum class Command 
+{
+	SHOOT,
+	STARTUP,
+	STOPUP,
+	STARTRIGHT,
+	STARTLEFT,
+	STOPLEFT,
+	STOPRIGHT,
+	STARTDOWN,
+	STOPDOWN,
+	STOPSHOOT,
+	DIE,
+	HURT,
+	STOPHURT
+};
+
 class IFigure
 {
 public:

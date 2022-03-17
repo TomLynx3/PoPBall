@@ -51,9 +51,6 @@
     <ClCompile Include="HeroAssets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Animal.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameCreature.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -66,7 +63,13 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StateQueue.cpp">
+    <ClCompile Include="Consumable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AmmoPack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LifePoints.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,9 +116,6 @@
     <ClInclude Include="HeroAssets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Animal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameCreature.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -128,7 +128,13 @@
     <ClInclude Include="Bullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="StateQueue.h">
+    <ClInclude Include="Consumable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AmmoPack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LifePoints.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -256,6 +262,75 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\shield.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\hpIcon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\heart.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\heart1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\heart2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\armor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\ammo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\ammo_pickup.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\Downloads\hp_pickup.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

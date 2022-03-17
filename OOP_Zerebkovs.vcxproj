@@ -118,14 +118,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Animal.cpp" />
+    <ClCompile Include="AmmoPack.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Consumable.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameCreature.cpp" />
     <ClCompile Include="HeroAssets.cpp" />
     <ClCompile Include="Hunter.cpp" />
     <ClCompile Include="IFigure.cpp" />
+    <ClCompile Include="LifePoints.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Monster.cpp" />
@@ -133,19 +135,20 @@
     <ClCompile Include="Rotator.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Star.cpp" />
-    <ClCompile Include="StateQueue.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animal.h" />
+    <ClInclude Include="AmmoPack.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Consumable.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameCreature.h" />
     <ClInclude Include="HeroAssets.h" />
     <ClInclude Include="Hunter.h" />
     <ClInclude Include="IFigure.h" />
+    <ClInclude Include="LifePoints.h" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -157,7 +160,6 @@
     <ClInclude Include="Rotator.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Star.h" />
-    <ClInclude Include="StateQueue.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
@@ -168,6 +170,9 @@
     <EmbeddedResource Include="Pictures.resx" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\Downloads\ammo.png" />
+    <Image Include="..\..\..\Downloads\ammo_pickup.png" />
+    <Image Include="..\..\..\Downloads\armor.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_0.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_1.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_2.png" />
@@ -175,6 +180,20 @@
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_4.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_5.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_6.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_0.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_1.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_2.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_3.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_4.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_5.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_6.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_0.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_1.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_2.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_3.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_4.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_5.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_6.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_0.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_1.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_2.png" />
@@ -208,6 +227,12 @@
     <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_8.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_9.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-net-657149-free-elven-land-game-battle-backgrounds\PNG\game_background_1\layers\battleground.png" />
+    <Image Include="..\..\..\Downloads\heart.png" />
+    <Image Include="..\..\..\Downloads\heart1.png" />
+    <Image Include="..\..\..\Downloads\heart2.png" />
+    <Image Include="..\..\..\Downloads\hpIcon.png" />
+    <Image Include="..\..\..\Downloads\hp_pickup.png" />
+    <Image Include="..\..\..\Downloads\shield.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

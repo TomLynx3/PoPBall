@@ -45,6 +45,7 @@ public:
 	void addScore(int amount);
 	IFigure* findObjectIfCollision(IFigure* obj, const type_info* type);
 	void endGame();
+	void resetScore();
 	  
 };
 

@@ -40,7 +40,6 @@ void Manager::add(IFigure* object)
 void Manager::drawFrame(Graphics^ graphics)
 {
 	graphics->FillRectangle(% SolidBrush(Color::FromArgb(217, 212, 212)), 0, 0, _frameWidth, _frameHeight);
-	//graphics->DrawImage(Pictures::bgImage, 0, 0,_frameWidth,_frameHeight);
 
 	for (int i = 0; i < MAX_OBJECTS; i++) {
 		if (_objects[i]) {
@@ -104,8 +103,12 @@ bool Manager::checkCollision(IFigure* first, IFigure* second)
 
 Coordinates Manager::getRandomCoordinates(IFigure* object)
 {
+	int size = object->getSize();
 
-	return Coordinates{ (float)(rand() % _frameWidth - object->getSize()) , (float)(rand() % _frameHeight - object->getSize()) };
+	int maxX = _frameWidth - size;
+	int maxY = _frameHeight - size;
+
+	return Coordinates{ (float)(rand() % (maxX + 1 - size)+size) , (float)(rand() % (maxY + 1 - size) + size)};
 }
 
 IFigure* Manager::search(Coordinates coord)
@@ -372,8 +375,6 @@ IFigure* Manager::findObjectIfCollision(IFigure* obj, const type_info* type)
 void Manager::endGame()
 {
 
-	_score = 0;
-
 	OOPZerebkovs::MainForm::form->endGame();
 
 	for (int i = 0; i < MAX_OBJECTS; i++) {
@@ -389,6 +390,11 @@ void Manager::endGame()
 	
 	MessageBox::Show(result, "Game Over", MessageBoxButtons::OKCancel, MessageBoxIcon::Information);
 
+}
+
+void Manager::resetScore()
+{
+	_score = 0;
 }
 
 const void Manager::animate()

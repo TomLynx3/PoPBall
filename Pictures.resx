@@ -119,315 +119,312 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ammo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\ammo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\ammo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ammo_pickup" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\ammo_pickup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\ammo_pickup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="armor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\armor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="battleground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-657149-free-elven-land-game-battle-backgrounds\PNG\game_background_1\layers\battleground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\armor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="blue_container" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-976411-free-objects-and-items-for-2d-tank-game\PNG\Decor_Items\blue_container.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\blue_container.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="green_container" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-976411-free-objects-and-items-for-2d-tank-game\PNG\Decor_Items\green_container.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\green_container.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="heart2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\heart2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\heart2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hourglass_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\hourglass_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\hourglass_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hp_pickup" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\hp_pickup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\hp_pickup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Attack_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Attack_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Attack_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Attack_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Attack_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Attack_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Attack_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Attack_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Attack_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Attack_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Attack_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Attack_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Attack_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Attack_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Attack_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Attack_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Attack_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Attack_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Attack_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Attack_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Attack_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Attack_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Attack_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Attack_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_14" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Die_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Die_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Hurt_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Hurt_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Hurt_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Hurt_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Hurt_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Hurt_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Hurt_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Hurt_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Hurt_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Hurt_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Hurt_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Hurt_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Hurt_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Hurt_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Hurt_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Hurt_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Hurt_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Hurt_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Hurt_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Hurt_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Hurt_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Hurt_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Hurt_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Hurt_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_14" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_15" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_17" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minotaur_Walking_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Minotaur_Walking_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Attack_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Attack_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Attack_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Attack_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Attack_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Attack_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Attack_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Attack_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Attack_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Attack_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Attack_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Attack_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Attack_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\attack\Pirate_Attack_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Attack_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Die_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Die_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Die_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Die_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Die_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Die_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Die_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Die_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Die_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Die_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Die_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Die_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Die_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\die\Pirate_Die_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Die_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Hurt_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Hurt_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Hurt_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Hurt_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Hurt_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Hurt_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Hurt_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Hurt_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Hurt_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Hurt_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Hurt_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Hurt_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Hurt_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\hurt\Pirtate_Hurt_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Hurt_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Idle_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Idle_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Idle_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Idle_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Idle_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Idle_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Idle_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Idle_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Idle_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Idle_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Idle_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Idle_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Idle_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\idle\Pirate_Idle_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Idle_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Walking_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Walking_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Walking_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Walking_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Walking_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Walking_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Walking_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Walking_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Walking_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Walking_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Walking_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Walking_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pirate_Walking_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\Pirate_Walking_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="red_container" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-976411-free-objects-and-items-for-2d-tank-game\PNG\Decor_Items\red_container.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\red_container.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="score_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\score_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\score_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="yellow_container" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\Downloads\assets\craftpix-976411-free-objects-and-items-for-2d-tank-game\PNG\Decor_Items\yellow_container.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>Assets\yellow_container.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

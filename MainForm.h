@@ -512,6 +512,8 @@ private: System::Void startGame_Click(System::Object^ sender, System::EventArgs^
 		moveTimer->Enabled = true;
 		drawTimer->Enabled = true;
 		seconds = 0;
+		manager->resetScore();
+		
 
 		hunter = new Hunter(frame->Width, frame->Height, frame->Width / 2, frame->Height / 2, "Pirate");
 		manager->add(hunter);

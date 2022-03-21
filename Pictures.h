@@ -11,7 +11,6 @@ enum CreatureState { WALK, DYING, IDLE, ATTACK,NOSTATE,HURT };
 public ref class Pictures {
 
 public:
-	static Bitmap^ bgImage = LoadBitmap("battleground");
 	static Bitmap^ armorIcon = LoadBitmap("armor");
 	static Bitmap^ hpIcon = LoadBitmap("heart2");
 	static Bitmap^ ammoIcon = LoadBitmap("ammo");

@@ -18,6 +18,7 @@ private:
 	int _frameWidth, _frameHeight;
 	bool checkCollision(IFigure* first, IFigure* second);	
 	Coordinates getRandomCoordinates(IFigure* object);
+	int _score = 0;
 
 public:
 	Manager(int frameWidth, int frameHeight);
@@ -40,6 +41,10 @@ public:
 	IFigure* nearest(IFigure* object);
 	const void animate();
 	const void doCommand(Command cmd);
+	const int getScore();
+	void addScore(int amount);
+	IFigure* findObjectIfCollision(IFigure* obj, const type_info* type);
+	void endGame();
 	  
 };
 

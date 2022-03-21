@@ -1,5 +1,8 @@
 #include "GameCreature.h"
 #include "Bullet.h"
+#include "Hunter.h"
+#include "Minotaur.h"
+#include "Obstacle.h"
 
 
 
@@ -10,7 +13,7 @@ GameCreature::GameCreature(int frameWidth, int frameHeight, int x, int y,string 
 	_size = 35;
 	_state = CreatureState::WALK;
 	_name = name;
-	_lastImageIndex = Pictures::getHeroAssetLastImageIndex(gcnew String(name.c_str()));
+	_lastImageIndex = Pictures::getHeroAssetLastImageIndex(gcnew String(name.c_str()),_state);
 	_currentImageIndex = 0;
 	_armor = 5;
 	_hp = 5;
@@ -27,8 +30,10 @@ const void GameCreature::draw(Graphics^ graphics){
 		Rectangle(Point(_x - _size, _y - _size), Size(_size + _size, _size + _size));
 
 	
+	_drawHpBar(graphics);
 	graphics->DrawImage(assets[_currentImageIndex], displayRectangle);
 
+	
 }
 
 
@@ -36,20 +41,47 @@ const void GameCreature::draw(Graphics^ graphics){
 const bool GameCreature::interactable(IFigure* object)
 {
 	Bullet* bullet = dynamic_cast<Bullet*>(object);
-	return bullet != NULL;
+	Hunter* hunter = dynamic_cast<Hunter*>(object);
+
+	return hunter != NULL || bullet != NULL;
 }
 
-void GameCreature::makeReaction()
+void GameCreature::interact(IFigure* object)
 {
+
+	Hunter* hunter = dynamic_cast<Hunter*>(object);
+	Minotaur* minotaur = dynamic_cast<Minotaur*>(object);
+	Obstacle* obstacle= dynamic_cast<Obstacle*>(object);
+
+	if (hunter) {
+		doCommand(Command::ATTACK);
+	}
+	else if(minotaur) {
+		Coordinates pos = minotaur->getPosition();
+		followAway(Coordinates{ pos.x,pos.y });
+	}
+	else if (obstacle) {
+		_dx = -_dx;
+		_dy = -_dy;
+	}
 }
+
 
 void GameCreature::animate()
 {
 	_currentImageIndex++;
 
-	if(isHurt && _currentImageIndex == _lastImageIndex){
-		isHurt = false;
-		doCommand(Command::STOPHURT);
+	if((_isHurt || _isDying ) && _currentImageIndex == _lastImageIndex){
+		Command cmd = cmd;
+
+
+		cmd = _isHurt ? Command::STOPHURT : Command::STOPDYING;
+
+		_isHurt = false;
+		
+		
+		doCommand(cmd);
+
 		_currentImageIndex = 0;
 		return;
 	}
@@ -60,14 +92,18 @@ void GameCreature::animate()
 void GameCreature::getDamaged(int dmg)
 {
 	doCommand(Command::HURT);
+	_isHurt = true;
 	float resistance = (_armor / 15) * dmg;
 
 	float hp = dmg - resistance;
 
 	_hp -= hp;
-	isHurt = true;
+	
 	if (_hp <= 0) {
-		doCommand(Command::DIE);
+ 		_isHurt = false;
+		_isDying = true;
+		doCommand(Command::DYING);
+		
 	}
 }
 
@@ -115,6 +151,15 @@ const int GameCreature::getHpLabelColor()
 	}
 }
 
+const int GameCreature::getDmg()
+{
+	return _dmg;
+}
+
+const Coordinates GameCreature::getCenterPosition()
+{
+	return Coordinates{ _x, _y };
+}
 
 
 void GameCreature::_setState(CreatureState state)
@@ -125,7 +170,7 @@ void GameCreature::_setState(CreatureState state)
 
 	_state = state;
 	_currentImageIndex = 0;
-	_lastImageIndex = Pictures::getHeroAssetLastImageIndex(gcnew String(_name.c_str()));
+	_lastImageIndex = Pictures::getHeroAssetLastImageIndex(gcnew String(_name.c_str()),state);
 }
 
 void GameCreature::_drawHpBar(Graphics^ g)

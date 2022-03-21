@@ -8,7 +8,7 @@ struct Coordinates { float x; float y; };
 enum Side { N, S, W, E };
 enum class Command 
 {
-	SHOOT,
+	ATTACK,
 	STARTUP,
 	STOPUP,
 	STARTRIGHT,
@@ -17,8 +17,9 @@ enum class Command
 	STOPRIGHT,
 	STARTDOWN,
 	STOPDOWN,
-	STOPSHOOT,
-	DIE,
+	STOPATTACK,
+	DYING,
+	STOPDYING,
 	HURT,
 	STOPHURT
 };
@@ -48,7 +49,7 @@ public:
 	virtual void doCommand(Command cmd) = 0;
 
 protected:
-	virtual const bool checkColisionWithWall(Side side) = 0 ;
+	virtual const bool checkColisionWithWall(Side side) = 0;
 	virtual const float getCurrentSpeed() = 0;
 };
 

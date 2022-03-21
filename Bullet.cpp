@@ -1,5 +1,6 @@
 #include "Bullet.h"
 #include "GameCreature.h"
+#include "Obstacle.h";
 
 Bullet::Bullet(int frameWidth, int frameHeight, int x, int y,int dmg) : Mover(frameWidth, frameHeight)
 {
@@ -27,17 +28,30 @@ const void Bullet::draw(Graphics^ graphics)
 void Bullet::interact(IFigure* object)
 {
 	GameCreature* creature = dynamic_cast<GameCreature*>(object);
+	Obstacle* obstacle = dynamic_cast<Obstacle*>(object);
 	
-	//creature->doCommand(Command::DIE);
-	creature->getDamaged(_dmg);
-	manager->remove(this);
+
+	if (creature) {
+		creature->getDamaged(_dmg);
+		manager->remove(this);
+	}
+	else if (obstacle) {
+
+		_dx = -_dx;
+		_dy = _dy;
+		_reboundTimesLeft--;
+		_dmg--;
+	}
+	
+	
 
 }
 
 const bool Bullet::interactable(IFigure* object)
 {
 	GameCreature* gameCreature = dynamic_cast<GameCreature*>(object);
-	return gameCreature != NULL;
+	Obstacle* obstacle = dynamic_cast<Obstacle*>(object);
+	return gameCreature != NULL || obstacle != NULL;
 
 }
 
@@ -69,7 +83,9 @@ void Bullet::move()
 	
 }
 
-int Bullet::getDmg()
+const int Bullet::getDmg()
 {
 	return _dmg;
 }
+
+

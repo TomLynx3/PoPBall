@@ -17,7 +17,7 @@ const void Consumable::draw(Graphics^ graphics)
 		Rectangle(Point(_x - _size, _y - _size), Size(_size, _size));
 
 	graphics->DrawImage(img,displayRectangle);
-}
+ }
 
 void Consumable::move()
 {

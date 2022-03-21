@@ -17,7 +17,12 @@ public:
 	static Bitmap^ ammoIcon = LoadBitmap("ammo");
 	static Bitmap^ ammoPack = LoadBitmap("ammo_pickup");
 	static Bitmap^ lifePoints= LoadBitmap("hp_pickup");
-
+	static Bitmap^ scoreIcon = LoadBitmap("score_icon");
+	static Bitmap^ greenContainer = LoadBitmap("green_container");
+	static Bitmap^ redContainer = LoadBitmap("red_container");
+	static Bitmap^ blueContainer = LoadBitmap("blue_container");
+	static Bitmap^ yellowContainer = LoadBitmap("yellow_container");
+	static Bitmap^ timerIcon = LoadBitmap("hourglass_icon");
 private:	
 
 	static List<HeroAssets^>^ _assetConfigs = gcnew List<HeroAssets^>();
@@ -28,11 +33,25 @@ private:
 	static Dictionary<String^, List<Bitmap^>^>^ _creatureDyingAssets = gcnew Dictionary<String^, List<Bitmap^>^>();
 	static Dictionary<String^, List<Bitmap^>^>^ _creatureHurtAssets = gcnew Dictionary<String^, List<Bitmap^>^>();
 
+	
 
 public:static void loadAssets() {
 
-	_assetConfigs->Add(gcnew HeroAssets(17, "Minotaur"));
-	_assetConfigs->Add(gcnew HeroAssets(6, "Pirate"));
+	AssetIndexes^ minotaurAssetsIndexes = gcnew AssetIndexes{};
+	AssetIndexes^ pirateAssetIndexes = gcnew AssetIndexes{};
+	minotaurAssetsIndexes->lastAttackAssetIndex = 11;
+	minotaurAssetsIndexes->lastWalkAssetIndex = 17;
+	minotaurAssetsIndexes->lastHurtAssetIndex = 11;
+	minotaurAssetsIndexes->lastDieAssetIndex = 14;
+
+	pirateAssetIndexes->lastWalkAssetIndex = 6;
+	pirateAssetIndexes->lastDieAssetIndex = 6;
+	pirateAssetIndexes->lastHurtAssetIndex = 6;
+	pirateAssetIndexes->lastIdleAssetIndex = 6;
+	pirateAssetIndexes->lastAttackAssetIndex = 6;
+
+	_assetConfigs->Add(gcnew HeroAssets(minotaurAssetsIndexes, "Minotaur"));
+	_assetConfigs->Add(gcnew HeroAssets(pirateAssetIndexes, "Pirate"));
 		
 		for (int i = 0; i < 2; i++) {
 			HeroAssets^ config = _assetConfigs[i];
@@ -71,14 +90,26 @@ public:static Bitmap^ getAssetByName(String^ name) {
 	else if (name == "LifePoints") {
 		return lifePoints;
 	}
+	else if (name == "GreenContainer") {
+		return greenContainer;
+	}
+	else if (name == "RedContainer") {
+		return redContainer;
+	}
+	else if (name == "YellowContainer") {
+		return yellowContainer;
+	}
+	else if (name == "BlueContainer") {
+		return blueContainer;
+	}
 }
-public:static int getHeroAssetLastImageIndex(String^ heroName) {
+public:static int getHeroAssetLastImageIndex(String^ heroName,CreatureState state) {
 	
 	for (int i = 0; i < _assetConfigs->Count; i++) {
 		HeroAssets^ config = _assetConfigs[i];
 
 		if (config->getName() == heroName) {
-			return config->getLastImageIndex();
+			return config->getLastImageIndex(state);
 		}
 	}
 	return -1;

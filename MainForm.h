@@ -9,13 +9,13 @@
 #include "Manager.h";
 #include <cmath>
 #include "Pictures.h"
-#include "Animal.h"
 #include "GameCreature.h"
-#include "Monster.h"
 #include "Hunter.h"
 #include "Bullet.h"
 #include "AmmoPack.h"
 #include "LifePoints.h"
+#include "Minotaur.h"
+#include "Obstacle.h"
 
 using namespace std;
 
@@ -41,7 +41,8 @@ namespace OOPZerebkovs {
 
 			form = this;
 			Pictures::loadAssets();
-			this->animationTimer->Enabled = true;
+			
+			this->toolTip1->SetToolTip(this->info, "Use Mouse To Set Movement Direction\nW - To Move Forward\nS - To Move Back\nA - To Move Left\nD - To Move Right\nSPACE - To Shoot");
 			//TODO: Add the constructor code here
 			//
 		}
@@ -75,6 +76,22 @@ namespace OOPZerebkovs {
 
 	public: System::Windows::Forms::PictureBox^ ammoIcon;
 	private: System::Windows::Forms::Timer^ consumambleTimer;
+	private: System::Windows::Forms::Label^ score;
+	public: System::Windows::Forms::PictureBox^ scoreIcon;
+
+	private: System::Windows::Forms::Timer^ monsterTime;
+	private: System::Windows::Forms::Timer^ reactionTimer;
+	private: System::Windows::Forms::Timer^ gameTimer;
+	private: System::Windows::Forms::Label^ timer;
+	public: System::Windows::Forms::PictureBox^ timerIcon;
+	private: System::Windows::Forms::ToolTip^ toolTip1;
+	private: System::Windows::Forms::Button^ info;
+	public:
+
+	public:
+	private:
+	public:
+	private:
 	public:
 	private:
 	public:
@@ -108,6 +125,10 @@ namespace OOPZerebkovs {
 			this->animationTimer = (gcnew System::Windows::Forms::Timer(this->components));
 			this->startGame = (gcnew System::Windows::Forms::Button());
 			this->stats = (gcnew System::Windows::Forms::GroupBox());
+			this->timer = (gcnew System::Windows::Forms::Label());
+			this->timerIcon = (gcnew System::Windows::Forms::PictureBox());
+			this->score = (gcnew System::Windows::Forms::Label());
+			this->scoreIcon = (gcnew System::Windows::Forms::PictureBox());
 			this->ammoAmount = (gcnew System::Windows::Forms::Label());
 			this->ammoIcon = (gcnew System::Windows::Forms::PictureBox());
 			this->hpAmount = (gcnew System::Windows::Forms::Label());
@@ -115,8 +136,15 @@ namespace OOPZerebkovs {
 			this->armorAmount = (gcnew System::Windows::Forms::Label());
 			this->armor = (gcnew System::Windows::Forms::PictureBox());
 			this->consumambleTimer = (gcnew System::Windows::Forms::Timer(this->components));
+			this->monsterTime = (gcnew System::Windows::Forms::Timer(this->components));
+			this->reactionTimer = (gcnew System::Windows::Forms::Timer(this->components));
+			this->gameTimer = (gcnew System::Windows::Forms::Timer(this->components));
+			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
+			this->info = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->frame))->BeginInit();
 			this->stats->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->timerIcon))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->scoreIcon))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ammoIcon))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->hp))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->armor))->BeginInit();
@@ -130,8 +158,6 @@ namespace OOPZerebkovs {
 			this->frame->TabIndex = 0;
 			this->frame->TabStop = false;
 			this->frame->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainForm::frame_Paint);
-			this->frame->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseDown);
-			this->frame->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MainForm::frame_MouseUp);
 			// 
 			// moveTimer
 			// 
@@ -148,7 +174,7 @@ namespace OOPZerebkovs {
 			// animationTimer
 			// 
 			this->animationTimer->Enabled = true;
-			this->animationTimer->Interval = 25;
+			this->animationTimer->Interval = 40;
 			this->animationTimer->Tick += gcnew System::EventHandler(this, &MainForm::animationTimer_Tick);
 			// 
 			// startGame
@@ -163,6 +189,10 @@ namespace OOPZerebkovs {
 			// 
 			// stats
 			// 
+			this->stats->Controls->Add(this->timer);
+			this->stats->Controls->Add(this->timerIcon);
+			this->stats->Controls->Add(this->score);
+			this->stats->Controls->Add(this->scoreIcon);
 			this->stats->Controls->Add(this->ammoAmount);
 			this->stats->Controls->Add(this->ammoIcon);
 			this->stats->Controls->Add(this->hpAmount);
@@ -171,10 +201,57 @@ namespace OOPZerebkovs {
 			this->stats->Controls->Add(this->armor);
 			this->stats->Location = System::Drawing::Point(658, 12);
 			this->stats->Name = L"stats";
-			this->stats->Size = System::Drawing::Size(187, 262);
+			this->stats->Size = System::Drawing::Size(187, 373);
 			this->stats->TabIndex = 3;
 			this->stats->TabStop = false;
 			this->stats->Text = L"Stats";
+			// 
+			// timer
+			// 
+			this->timer->Font = (gcnew System::Drawing::Font(L"Yu Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(186)));
+			this->timer->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(64)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+			this->timer->Location = System::Drawing::Point(71, 300);
+			this->timer->Name = L"timer";
+			this->timer->Size = System::Drawing::Size(92, 50);
+			this->timer->TabIndex = 9;
+			this->timer->Text = L"0:00";
+			this->timer->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// timerIcon
+			// 
+			this->timerIcon->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->timerIcon->Location = System::Drawing::Point(6, 300);
+			this->timerIcon->Name = L"timerIcon";
+			this->timerIcon->Size = System::Drawing::Size(60, 60);
+			this->timerIcon->TabIndex = 8;
+			this->timerIcon->TabStop = false;
+			this->timerIcon->WaitOnLoad = true;
+			this->timerIcon->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainForm::timerIcon_Paint);
+			// 
+			// score
+			// 
+			this->score->Font = (gcnew System::Drawing::Font(L"Yu Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(186)));
+			this->score->ForeColor = System::Drawing::Color::Black;
+			this->score->Location = System::Drawing::Point(71, 234);
+			this->score->Name = L"score";
+			this->score->Size = System::Drawing::Size(92, 50);
+			this->score->TabIndex = 7;
+			this->score->Text = L"0";
+			this->score->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// scoreIcon
+			// 
+			this->scoreIcon->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->scoreIcon->Location = System::Drawing::Point(6, 234);
+			this->scoreIcon->Name = L"scoreIcon";
+			this->scoreIcon->Size = System::Drawing::Size(60, 60);
+			this->scoreIcon->TabIndex = 6;
+			this->scoreIcon->TabStop = false;
+			this->scoreIcon->WaitOnLoad = true;
+			this->scoreIcon->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainForm::scoreIcon_Paint);
 			// 
 			// ammoAmount
 			// 
@@ -246,11 +323,42 @@ namespace OOPZerebkovs {
 			this->consumambleTimer->Interval = 3500;
 			this->consumambleTimer->Tick += gcnew System::EventHandler(this, &MainForm::consumambleTimer_Tick);
 			// 
+			// monsterTime
+			// 
+			this->monsterTime->Interval = 2000;
+			this->monsterTime->Tick += gcnew System::EventHandler(this, &MainForm::monsterTime_Tick);
+			// 
+			// reactionTimer
+			// 
+			this->reactionTimer->Interval = 850;
+			this->reactionTimer->Tick += gcnew System::EventHandler(this, &MainForm::reactionTimer_Tick);
+			// 
+			// gameTimer
+			// 
+			this->gameTimer->Interval = 1000;
+			this->gameTimer->Tick += gcnew System::EventHandler(this, &MainForm::gameTimer_Tick);
+			// 
+			// toolTip1
+			// 
+			this->toolTip1->ShowAlways = true;
+			this->toolTip1->ToolTipIcon = System::Windows::Forms::ToolTipIcon::Info;
+			this->toolTip1->ToolTipTitle = L"Info";
+			// 
+			// info
+			// 
+			this->info->Location = System::Drawing::Point(664, 412);
+			this->info->Name = L"info";
+			this->info->Size = System::Drawing::Size(182, 23);
+			this->info->TabIndex = 5;
+			this->info->Text = L"INFO";
+			this->info->UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(850, 572);
+			this->Controls->Add(this->info);
 			this->Controls->Add(this->stats);
 			this->Controls->Add(this->startGame);
 			this->Controls->Add(this->frame);
@@ -264,6 +372,8 @@ namespace OOPZerebkovs {
 			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &MainForm::MainForm_KeyUp);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->frame))->EndInit();
 			this->stats->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->timerIcon))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->scoreIcon))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ammoIcon))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->hp))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->armor))->EndInit();
@@ -273,16 +383,27 @@ namespace OOPZerebkovs {
 #pragma endregion
 
 	private:
-		int tickCount = 0;
-		bool isMousePressed = false;
-		int x1 = 0;
-		int y1 = 0;
-		IFigure* object;
 		bool isGameStarted = false;
 		GameCreature* hunter;
-		//Pictures::loadAssets();
-		//this->animationTimer->Enabled = true;
+		int seconds = 0;
+
 	public: static MainForm^ form;
+
+	public: void endGame() {
+		
+		isGameStarted = false;
+		consumambleTimer->Enabled = false;
+		monsterTime->Enabled = false;
+		reactionTimer->Enabled = false;
+		gameTimer->Enabled = false;
+		animationTimer->Enabled = false;
+		drawTimer->Enabled = false;
+		moveTimer->Enabled = false;
+		startGame->Enabled = true;
+		
+		
+		
+	}
 
 
 	private: System::Void frame_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
@@ -292,18 +413,19 @@ namespace OOPZerebkovs {
 
 		if (isGameStarted) {
 
-
 			armorAmount->Text = hunter->getArmor().ToString();
 			hpAmount->Text = hunter->getHpInPercentages().ToString() + "%";
 			ammoAmount->Text = hunter->getAmmoAmount().ToString();
+			score->Text = manager->getScore().ToString();
 
 			hpAmount->ForeColor = Color::FromArgb(hunter->getHpLabelColor());
 			ammoAmount->ForeColor = Color::FromArgb(hunter->getAmmoLabelColor());
+
+			TimeSpan^ time = TimeSpan::FromSeconds(seconds);
+			
+			timer->Text = String::Format("{0}:{1:00}", (int)time->TotalMinutes, time->Seconds);
+			
 		}
-	}
-	private: System::Void frame_MouseDown(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-
-
 	}
 
 	private: void Form_MouseWheel(Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
@@ -321,27 +443,18 @@ namespace OOPZerebkovs {
 
 		manager->move();
 
-		if (isMousePressed) {
-			tickCount++;
-		}
-
 	}
 private: System::Void drawTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
 
 		frame->Invalidate();
 
 	}
-private: System::Void frame_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
-	}
-
 private: System::Void MainForm_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		
 	if (e->KeyCode == Keys::ControlKey) {
 		moveTimer->Enabled = false;
 	}
 
-
-	//Try to combine actions
 	else if (e->KeyCode == Keys::W) {
 		manager->doCommand(Command::STARTUP);
 	}
@@ -356,7 +469,7 @@ private: System::Void MainForm_KeyDown(System::Object^ sender, System::Windows::
 	}
 	else if (e->KeyCode == Keys::Space) {
 		
-		manager->doCommand(Command::SHOOT);
+		manager->doCommand(Command::ATTACK);
 
 	}
 	}
@@ -378,27 +491,37 @@ private: System::Void MainForm_KeyUp(System::Object^ sender, System::Windows::Fo
 		manager->doCommand(Command::STOPDOWN);
 	}
 	else if (e->KeyCode == Keys::Space) {
-		manager->doCommand(Command::STOPSHOOT);
+		manager->doCommand(Command::STOPATTACK);
 	}
 	}
 
-private: System::Void checkBox1_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-			
-			
-	}
-private: System::Void destroyAll_Click(System::Object^ sender, System::EventArgs^ e) {
-		manager->explodeAllObjects();
-	}
 private: System::Void animationTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
 	manager->animate();
 }
 private: System::Void startGame_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 	if (!isGameStarted) {
-		hunter = new Hunter(frame->Width, frame->Height, frame->Width / 2, frame->Height / 2, "Pirate");
-		manager->add(hunter);
+		
 		isGameStarted = true;
 		consumambleTimer->Enabled = true;
+		monsterTime->Enabled = true;
+		reactionTimer->Enabled = true;
+		gameTimer->Enabled = true;
+		animationTimer->Enabled = true;
+		startGame->Enabled = false;
+		moveTimer->Enabled = true;
+		drawTimer->Enabled = true;
+		seconds = 0;
+
+		hunter = new Hunter(frame->Width, frame->Height, frame->Width / 2, frame->Height / 2, "Pirate");
+		manager->add(hunter);
+		manager->add(new Minotaur(frame->Width, frame->Height, 400, 500, "Minotaur"));
+		manager->place(new Obstacle(frame->Width, frame->Height, 0, 0, "RedContainer"));
+		manager->place(new Obstacle(frame->Width, frame->Height, 0, 0, "GreenContainer"));
+		manager->place(new Obstacle(frame->Width, frame->Height, 0, 0, "YellowContainer"));
+		manager->place(new Obstacle(frame->Width, frame->Height, 0, 0, "BlueContainer"));
+
+		
 	}
 }
 private: System::Void armor_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
@@ -433,6 +556,32 @@ private: System::Void consumambleTimer_Tick(System::Object^ sender, System::Even
 		}
 	}
 	}
+private: System::Void scoreIcon_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	e->Graphics->DrawImage(Pictures::scoreIcon, Point(0, 0));
+	}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	manager->endGame();
+}
+private: System::Void monsterTime_Tick(System::Object^ sender, System::EventArgs^ e) {
+		
+	int number = rand() % 4;
+
+	if (number == 0) {
+
+	manager->place(new Minotaur(frame->Width, frame->Height, 400, 500, "Minotaur"));
+	}
+}
+private: System::Void reactionTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
+	manager->makeReactions();
+}
+private: System::Void gameTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
+		seconds++;
+}
+
+private: System::Void timerIcon_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	e->Graphics->DrawImage(Pictures::timerIcon, Point(0, 0));
+}
+
 };
 
 }

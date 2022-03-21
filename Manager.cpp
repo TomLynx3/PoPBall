@@ -2,6 +2,8 @@
 #include "Pictures.h"
 #include "MainForm.h"
 
+using namespace System::Windows::Forms;
+
 Manager* manager;
 
 
@@ -350,6 +352,45 @@ IFigure* Manager::nearest(IFigure* object)
 	return nearest;
 }
 
+IFigure* Manager::findObjectIfCollision(IFigure* obj, const type_info* type)
+{
+
+	for (int i = 0; i < MAX_OBJECTS; i++) {
+		IFigure* fig = _objects[i];
+
+		if (fig && typeid(*fig) == *type) {
+			bool isCollision = checkCollision(fig, obj);
+
+			if (isCollision) {
+				return fig;
+			}
+		}
+	}
+	return nullptr;
+}
+
+void Manager::endGame()
+{
+
+	_score = 0;
+
+	OOPZerebkovs::MainForm::form->endGame();
+
+	for (int i = 0; i < MAX_OBJECTS; i++) {
+		
+		if (_objects[i]) {
+			delete _objects[i];
+			_objects[i] = nullptr;
+		}
+	}
+
+	String^ result = "Your score is " + _score.ToString();
+
+	
+	MessageBox::Show(result, "Game Over", MessageBoxButtons::OKCancel, MessageBoxIcon::Information);
+
+}
+
 const void Manager::animate()
 {
 	for (int i = 0; i < MAX_OBJECTS; i++) {
@@ -361,11 +402,28 @@ const void Manager::animate()
 
 const void Manager::doCommand(Command cmd)
 {
+	//do command just for Hunter
+
 	for (int i = 0; i < MAX_OBJECTS; i++) {
-		if (_objects[i]) {
+		if (_objects[i] && dynamic_cast<Hunter*>(_objects[i]) != NULL) {
 			_objects[i]->doCommand(cmd);
+			return;
 		}
 	}
 }
+
+const int Manager::getScore()
+{
+	return _score;
+}
+
+void Manager::addScore(int amount)
+{
+	_score += amount;
+}
+
+
+
+
 
 

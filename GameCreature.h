@@ -11,7 +11,7 @@ public:
     GameCreature(int frameWidth, int frameHeight, int x, int y,string name);
     const void draw(Graphics^ graphics) override;
     const bool interactable(IFigure* object) override;
-    void makeReaction() override;
+    void interact(IFigure* object) override;
     void animate() override;
     void getDamaged(int dmg);
     const int getArmor();
@@ -19,6 +19,9 @@ public:
     const int getAmmoAmount();
     const int getAmmoLabelColor();
     const int getHpLabelColor();
+    const int getDmg();
+    const Coordinates getCenterPosition() override;
+    
     
 protected:
     int _currentImageIndex;
@@ -32,7 +35,8 @@ protected:
     string _name;
     void _setState(CreatureState state);
     void _drawHpBar(Graphics^ g);
-private:
-    bool isHurt = false;
+protected:
+    bool _isHurt = false;
+    bool _isDying = false;
 };
 

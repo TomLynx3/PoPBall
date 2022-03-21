@@ -11,7 +11,7 @@ public:
     const bool interactable(IFigure* object) override;
     void makeReaction() override;
     void move() override;
-    int getDmg();
+    const int getDmg();
 private:
     int _reboundTimesLeft = 2;
     int _dmg;

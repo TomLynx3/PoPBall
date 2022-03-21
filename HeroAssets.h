@@ -1,19 +1,30 @@
 #pragma once
 
+ref struct AssetIndexes
+{
+int lastAttackAssetIndex;
+int lastIdleAssetIndex;
+int lastHurtAssetIndex;
+int lastWalkAssetIndex;
+int lastDieAssetIndex;
+};
 
 ref class HeroAssets {
 
 
-public: HeroAssets(int lastAssetIndex, String^ heroName) {
+public: HeroAssets(AssetIndexes^ assetIndexes,String^ heroName) {
 		_heroName = heroName;
-		_lastAssetIndex = lastAssetIndex;
+
+		_assetIndexes = assetIndexes;
+	
 	}
 
 public:List<Bitmap^>^ getAssetsByState(CreatureState state) {
 		List<Bitmap^> ^ assets = gcnew List<Bitmap^>();
 		String^ preffix = _getPreffix(state);
+		int lastAssetIndex = getLastImageIndex(state);
 		
-		for (int i = 0; i < _lastAssetIndex; i++) {
+		for (int i = 0; i <= lastAssetIndex; i++) {
 			String^ assetName = _heroName + preffix + i.ToString();
 			assets->Add(loadBitmap(assetName));
 		}
@@ -21,8 +32,25 @@ public:List<Bitmap^>^ getAssetsByState(CreatureState state) {
 		return assets;
 	}
 
-public: int getLastImageIndex() {
-	return _lastAssetIndex;
+
+public: int getLastImageIndex(CreatureState state) {
+
+	switch (state)
+	{
+	case CreatureState::WALK:
+		return _assetIndexes->lastWalkAssetIndex;
+	case CreatureState::ATTACK:
+		return _assetIndexes->lastAttackAssetIndex;
+	case CreatureState::DYING:
+		return _assetIndexes->lastDieAssetIndex;
+	case CreatureState::HURT:
+		return _assetIndexes->lastHurtAssetIndex;
+	case CreatureState::IDLE:
+		return _assetIndexes->lastIdleAssetIndex;
+	default:
+		return -1;
+		break;
+	}
 }
 
 public: String^ getName() {
@@ -44,7 +72,7 @@ private:String^ _getPreffix(CreatureState state) {
 
 }
 private:
-	int _lastAssetIndex;
+	AssetIndexes^ _assetIndexes;
 	String^ _heroName = gcnew String("");
 
 	Bitmap^ loadBitmap(String^ bitmapName) {

@@ -111,11 +111,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AmmoPack.cpp" />
@@ -130,8 +136,9 @@
     <ClCompile Include="LifePoints.cpp" />
     <ClCompile Include="MainForm.cpp" />
     <ClCompile Include="Manager.cpp" />
-    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Minotaur.cpp" />
     <ClCompile Include="Mover.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
     <ClCompile Include="Rotator.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Star.cpp" />
@@ -153,10 +160,12 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Manager.h" />
-    <ClInclude Include="Monster.h" />
+    <ClInclude Include="Minotaur.h" />
     <ClInclude Include="Mover.h" />
+    <ClInclude Include="Obstacle.h" />
     <ClInclude Include="Pictures.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
     <ClInclude Include="Rotator.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Star.h" />
@@ -208,6 +217,49 @@
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_4.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_5.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-901180-free-2d-pirate-character-sprites\PNG\2\walk\Pirate_Walking_6.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-976411-free-objects-and-items-for-2d-tank-game\PNG\Decor_Items\blue_container.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-976411-free-objects-and-items-for-2d-tank-game\PNG\Decor_Items\green_container.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-976411-free-objects-and-items-for-2d-tank-game\PNG\Decor_Items\red_container.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-976411-free-objects-and-items-for-2d-tank-game\PNG\Decor_Items\yellow_container.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_0.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_1.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_10.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_11.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_2.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_3.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_4.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_5.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_6.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_7.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_8.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Attacking\Minotaur_Attack_9.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_0.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_1.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_10.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_11.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_12.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_13.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_14.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_2.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_3.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_4.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_5.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_6.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_7.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_8.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Dying\Minotaur_Die_9.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_0.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_1.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_10.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_11.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_2.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_3.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_4.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_5.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_6.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_7.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_8.png" />
+    <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Hurt\Minotaur_Hurt_9.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_0.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_1.png" />
     <Image Include="..\..\..\Downloads\assets\craftpix-net-484869-free-minotaur-tiny-style-2d-sprites\PNG\Minotaur_01\PNG Sequences\Walking\Minotaur_01_Walking_10.png" />
@@ -230,9 +282,15 @@
     <Image Include="..\..\..\Downloads\heart.png" />
     <Image Include="..\..\..\Downloads\heart1.png" />
     <Image Include="..\..\..\Downloads\heart2.png" />
+    <Image Include="..\..\..\Downloads\hourglass_icon.png" />
     <Image Include="..\..\..\Downloads\hpIcon.png" />
     <Image Include="..\..\..\Downloads\hp_pickup.png" />
+    <Image Include="..\..\..\Downloads\scoreIcon.png" />
+    <Image Include="..\..\..\Downloads\score_icon.png" />
     <Image Include="..\..\..\Downloads\shield.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="OOP_Zerebkovs.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

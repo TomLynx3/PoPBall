@@ -125,7 +125,7 @@ void Mover::followTo(int x, int y)
 	float deltaX = x - _x;
 	float deltaY = y - _y;
 
-	float angle = atan2(fabs(deltaY), fabs(deltaX));
+	float angle = atan2(deltaY, deltaX);
 
 	float speed = getCurrentSpeed();
 
@@ -133,9 +133,9 @@ void Mover::followTo(int x, int y)
 
 	float dy = speed * sin(angle);
 
-	_dx = x < _x ? -dx : dx;
+	_dx = dx;
+	_dy = dy;
 
-	_dy = y < _y ? -dy : dy;
 }
 
 void Mover::followAway(Coordinates position)
